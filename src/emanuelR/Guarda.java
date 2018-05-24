@@ -11,5 +11,5 @@ public class Guarda extends Funcionario {
         super(nomeCompleto,contato,cpf);
     
     }
-    
+    //asidiaosdjoasdoiasd
 }
