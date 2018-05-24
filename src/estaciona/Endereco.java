@@ -11,9 +11,8 @@ public class Endereco {
     public final int TAM_CEP = 9;
     public final int TAM_COMPLEMENTO = 50;
     public final int TAM_RUA = 100;
+
     
-
-
     @Override
     public String toString(){
         String texto;
@@ -24,7 +23,7 @@ public class Endereco {
         texto += "\nbEstado: " + this.bairro.getCidade().getEstado().getNome();
         return texto;
     }
-    
+
     public Endereco(int id, Estado estado, Cidade cidade, Bairro bairro, String cep, String rua, String complemento) {
         this.id = id;
         this.bairro = bairro;
