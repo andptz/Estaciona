@@ -1,10 +1,12 @@
 
-package estaciona;
+package andreangelo;
 
 
 public class Endereco {
     private int id;
     private Bairro bairro;
+    private Cidade cidade;
+    private Estado estado;
     private String cep;
     private String rua;
     private String complemento;
@@ -27,6 +29,8 @@ public class Endereco {
     public Endereco(int id, Estado estado, Cidade cidade, Bairro bairro, String cep, String rua, String complemento) {
         this.id = id;
         this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
         this.cep = cep;
         this.rua = rua;
         this.complemento = complemento;
