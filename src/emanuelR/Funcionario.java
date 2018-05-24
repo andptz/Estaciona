@@ -48,23 +48,28 @@ public class Funcionario extends PessoaFisica {
             this.matricula = matricula;
         }else{
             throw new IllegalArgumentException("Matricula Inválida.");
-        }
-        
+        }    
         
     }
 
     public final void setDataAdmissao(String dataAdmissao) {
-        
-        
-        
+           
        if(ValidacaoSTR.validaData(dataAdmissao)){
            this.dataAdmissao = dataAdmissao;
+       }else{
+       
+           throw new IllegalArgumentException("Data Admissao Invalida.");
        }
         
-        this.dataAdmissao = dataAdmissao;
     }
 
     public final void setDataDemissao(String dataDemissao) {
-        this.dataDemissao = dataDemissao;
+        
+        if(ValidacaoSTR.validaData(dataDemissao)){
+            this.dataDemissao = dataDemissao;
+        }else{
+            throw new IllegalArgumentException("Data Demissao Invalida.");
+        }
+            
     }
 }

@@ -25,14 +25,11 @@ public class PessoaFisica extends Pessoa {
     public final void setCpf(String cpf) {
         
         if(!cpf.equals("")){
-            this.cpf = matricula;
+            this.cpf = cpf;
         }else{
             throw new IllegalArgumentException("Matricula Inválida.");
         }
         
-        
-        
-        this.cpf = cpf;
     }
     
     
