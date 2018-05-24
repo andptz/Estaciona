@@ -1,9 +1,10 @@
 
-package classes;
+package emanuelR;
+import emanuelR.ValidacaoString.ValidacaoSTR;
 
 public class Funcionario extends PessoaFisica {
-
     
+
     private String matricula;
     private String dataAdmissao;
     private String dataDemissao;
@@ -18,8 +19,12 @@ public class Funcionario extends PessoaFisica {
         this.dataDemissao = dataDemissao;
     }
     
-    public Funcionario(String nomeCompleto, Contato contato, String cpf){
+    public Funcionario(String nomeCompleto, Contato contato, String cpf,
+                       String matricula,String dataAdmissao,String dataDemissao){
             super(nomeCompleto, contato, cpf);
+            setDataAdmissao(dataAdmissao);
+            setDataDemissao(dataDemissao);
+            setMatricula(matricula);
     }
 
     // ========= GET ==============
@@ -37,15 +42,29 @@ public class Funcionario extends PessoaFisica {
     
     
     // ========= SET ===============
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
+    public final void setMatricula(String matricula) {
+        
+        if(!matricula.equals("")){
+            this.matricula = matricula;
+        }else{
+            throw new IllegalArgumentException("Matricula Inválida.");
+        }
+        
+        
     }
 
-    public void setDataAdmissao(String dataAdmissao) {
+    public final void setDataAdmissao(String dataAdmissao) {
+        
+        
+        
+       if(ValidacaoSTR.validaData(dataAdmissao)){
+           this.dataAdmissao = dataAdmissao;
+       }
+        
         this.dataAdmissao = dataAdmissao;
     }
 
-    public void setDataDemissao(String dataDemissao) {
+    public final void setDataDemissao(String dataDemissao) {
         this.dataDemissao = dataDemissao;
     }
 }
