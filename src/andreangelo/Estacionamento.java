@@ -7,19 +7,17 @@ import java.util.ArrayList;
 
 
 public class Estacionamento {
-    private int id;
     private String nome;
     private int qtdVagas;
     private Endereco endereco;
     private double valorHora;
+    private ArrayList<Vaga> listaVagas;
     private Guarda guarda;
     private ArrayList<Administrador> listaAdministradores;
-    private ArrayList<Vaga> listaVagas;
     private PessoaJuridica pessoaJuridica;
 
     
-    public Estacionamento(int id, String nome, int qtdVagas, Endereco endereco, double valorHora, Guarda guarda, ArrayList<Administrador> listaAdministradores, ArrayList<Vaga> listaVagas, PessoaJuridica pessoaJuridica) {
-        this.id = id;
+    public Estacionamento(String nome, int qtdVagas, Endereco endereco, double valorHora, Guarda guarda, ArrayList<Administrador> listaAdministradores, ArrayList<Vaga> listaVagas, PessoaJuridica pessoaJuridica) {
         this.nome = nome;
         this.qtdVagas = qtdVagas;
         this.endereco = endereco;
@@ -28,14 +26,6 @@ public class Estacionamento {
         this.listaAdministradores = listaAdministradores;
         this.listaVagas = listaVagas;
         this.pessoaJuridica = pessoaJuridica;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNome() {
@@ -102,7 +92,5 @@ public class Estacionamento {
         this.pessoaJuridica = pessoaJuridica;
     }
     
-    
-    
-    
+ 
 }

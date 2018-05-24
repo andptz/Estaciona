@@ -5,7 +5,6 @@ import emanuelR.ValidacaoString.ValidacaoSTR;
 
 
 public class Endereco {
-    private int id;
     private Bairro bairro;
     private Cidade cidade;
     private Estado estado;
@@ -29,22 +28,13 @@ public class Endereco {
         return texto;
     }
 
-    public Endereco(int id, Estado estado, Cidade cidade, Bairro bairro, String cep, String rua, String complemento) {
-        this.id = id;
+    public Endereco(Estado estado, Cidade cidade, Bairro bairro, String cep, String rua, String complemento) {
         this.bairro = bairro;
         this.cidade = cidade;
         this.estado = estado;
         this.cep = cep;
         this.rua = rua;
         this.complemento = complemento;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId_endereco(int id) {
-        this.id = id;
     }
 
     public Estado getEstado() {
