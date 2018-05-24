@@ -1,6 +1,8 @@
 
 package andreangelo;
 
+import emanuelR.ValidacaoString.ValidacaoSTR;
+
 
 public class Endereco {
     private int id;
@@ -21,8 +23,9 @@ public class Endereco {
         texto = "rua: " + this.rua;
         texto += "\nCEP: " + this.cep;
         texto += "\nComplemento: " + this.complemento;
-        texto += "\nCidade: " + this.bairro.getCidade().getNome();
-        texto += "\nbEstado: " + this.bairro.getCidade().getEstado().getNome();
+        texto += "\nBairro: "  + this.bairro;
+        texto += "\nCidade: " + this.cidade;
+        texto += "\nbEstado: " + this.estado;
         return texto;
     }
 
@@ -61,7 +64,7 @@ public class Endereco {
     }
 
     public void setCep(String cep) {
-        if (cep.length() == TAM_CEP)
+        if (ValidacaoSTR.validaCEP(cep))
             this.cep = cep;
         else
             throw new IllegalArgumentException("CEP inválido!");

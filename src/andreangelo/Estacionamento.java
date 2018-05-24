@@ -1,8 +1,8 @@
 
 package andreangelo;
-import classes.Administrador;
-import classes.Guarda;
-import classes.PessoaJuridica;
+import emanuelR.Administrador;
+import emanuelR.Guarda;
+import emanuelR.PessoaJuridica;
 import java.util.ArrayList;
 
 

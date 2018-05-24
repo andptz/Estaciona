@@ -1,4 +1,4 @@
-package classes;
+package emanuelR;
 
 public class PessoaJuridica extends Pessoa{
     
