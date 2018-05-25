@@ -11,7 +11,7 @@ public class Endereco {
     private String cep;
     private String rua;
     private String complemento;
-    public final int TAM_CEP = 9;
+    //public final int TAM_CEP = 9;
     public final int TAM_COMPLEMENTO = 50;
     public final int TAM_RUA = 100;
 
