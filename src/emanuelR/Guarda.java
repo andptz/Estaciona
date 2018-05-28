@@ -3,15 +3,13 @@ package emanuelR;
 
 public class Guarda extends Funcionario {
     
-    //Construtor 1;
-    public Guarda(int id, String nomeCompleto, Contato contato, String cpf) {
-        super(id, nomeCompleto, contato, cpf);
+    public Guarda(int id, String nomeCompleto, Contato contato, String cpf, String matricula, String dataAdmissao, String dataDemissao) {
+        super(id, nomeCompleto, contato, cpf, matricula, dataAdmissao, dataDemissao);
     }
     
-    //Construtor 2;
-    public Guarda (String nomeCompleto, Contato contato,String cpf){
-        super(nomeCompleto,contato,cpf);
-    
+    public Guarda(String nomeCompleto, Contato contato, String cpf, String matricula, String dataAdmissao, String dataDemissao) {
+        super(nomeCompleto, contato, cpf, matricula, dataAdmissao, dataDemissao);
     }
+  
     
 }

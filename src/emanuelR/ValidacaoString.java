@@ -8,7 +8,9 @@ public class ValidacaoString {
         private static final int TAMANHO_CPF = 11;
         private static final int TAMANHO_DATA = 10;
         private static final int TAMANHO_CEP = 9;
-        private static final int TAMANHO_SENHA = 6;
+        private static final int TAMANHO_CNPJ = 14;
+        private static final int TAMANHO_CNH = 11;
+   
         
         //VALIDA DATA COM BASE EM STR;
         public static boolean validaData(String str){
@@ -39,14 +41,17 @@ public class ValidacaoString {
             return str.length() == TAMANHO_CEP;
         }
         
-        //VALIDA SENHA COM BASE EM STR;
-        public static boolean validaSENHA(String str){
-            
-            return str.length() >= TAMANHO_SENHA;
-            
+        //VALIDA CNPJ COM BASE EM STR;
+        public static boolean validaCNPJ(String str){
+           return str.length() == TAMANHO_CNPJ;
         }
         
-    
+        //VALIDA CNH COM BASE EM STR;
+        public static boolean validaCNH(String str){
+            
+            return str.length() == TAMANHO_CNH;
+        }
+        
     }
     
     

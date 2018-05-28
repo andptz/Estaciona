@@ -1,5 +1,7 @@
 package emanuelR;
 
+import emanuelR.ValidacaoString.ValidacaoSTR;
+
 public class PessoaJuridica extends Pessoa{
     
     private String cnpj;
@@ -23,7 +25,13 @@ public class PessoaJuridica extends Pessoa{
     
     //========= SET ===========
     public final void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+       
+        if(ValidacaoSTR.validaCNPJ(cnpj)){
+            this.cnpj = cnpj;
+        }else{
+            throw new IllegalArgumentException("CPNJ invalido.");
+        }
+        
     }
     
     

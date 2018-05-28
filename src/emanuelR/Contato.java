@@ -1,5 +1,5 @@
 
-package classes;
+package emanuelR;
 
 public final class Contato {
     

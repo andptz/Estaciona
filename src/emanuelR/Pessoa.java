@@ -1,5 +1,5 @@
 
-package classes;
+package emanuelR;
 
 public class Pessoa {
     
@@ -41,13 +41,10 @@ public class Pessoa {
     
     public final void setNomeCompleto(String nomeCompleto) {
         if(!nomeCompleto.equals("")){
-        
+            this.nomeCompleto = nomeCompleto;
         }else{
-        
-        }
-        
-        
-        this.nomeCompleto = nomeCompleto;
+            throw new IllegalArgumentException("Nome em branco.");
+        }      
     }
     
 }

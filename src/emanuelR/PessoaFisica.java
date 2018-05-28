@@ -27,7 +27,7 @@ public class PessoaFisica extends Pessoa {
         if(!cpf.equals("")){
             this.cpf = cpf;
         }else{
-            throw new IllegalArgumentException("Matricula Inválida.");
+            throw new IllegalArgumentException("CPF Inválida.");
         }
         
     }

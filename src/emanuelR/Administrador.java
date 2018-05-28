@@ -1,8 +1,6 @@
 
 package emanuelR;
 
-import emanuelR.ValidacaoString.ValidacaoSTR;
-
 public class Administrador extends Funcionario {
     
     private String senha;
@@ -27,10 +25,10 @@ public class Administrador extends Funcionario {
     // ======== SET ==========
     public void setSenha(String senha) {
         
-        if(ValidacaoSTR.validaSENHA(senha)){
+        if(!senha.equals("")){
             this.senha = senha;
         }else{
-            throw new IllegalArgumentException("Data Admissao Invalida.");
+            throw new IllegalArgumentException("Senha Invalida.");
         }
         
         
