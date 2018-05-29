@@ -36,19 +36,31 @@ public class Veiculo {
     }
 
     public void setAno(int ano) {
-        this.ano = ano;
+        if(ano<=1930)
+            throw new IllegalArgumentException("Ano inválido");
+        else
+            this.ano=ano;          
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if(!nome.equals(""))
+            this.nome = nome;
+        else
+            throw new IllegalArgumentException("Nome vazio");
     }
 
     public void setModelo(String modelo) {
-        this.modelo = modelo;
+        if(!modelo.equals(""))
+            this.modelo = modelo;
+        else
+            throw new IllegalArgumentException("Modelo inválido");
     }
 
     public void setMarca(String marca) {
-        this.marca = marca;
+        if(!marca.equals(""))
+            this.marca = marca;
+        else
+            throw new IllegalArgumentException("Marca inválida");
     }
 
     public int getId_placa() {

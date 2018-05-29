@@ -32,11 +32,17 @@ public class PagamentoEstacionamento extends Pagamento {
     }
 
     public void setStatus(String status) {
-        this.status = status;
+        if(!status.equals(""))
+            this.status = status;
+        else
+             throw new IllegalArgumentException("Status inválido");
     }
 
     public void setData(String data) {
-        this.data = data;
+        if(!data.equals(""))
+            this.data = data;
+        else
+             throw new IllegalArgumentException("Data inválida");
     }
     
     

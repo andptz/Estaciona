@@ -15,13 +15,16 @@ public class Pagamento {
     public Pagamento(int valor) {
         this.valor = valor;
     }
-
+    
     public int getValor() {
         return valor;
     }
 
     public void setValor(int valor) {
-        this.valor = valor;
+        if (valor!=0)
+            this.valor = valor;
+        else
+             throw new IllegalArgumentException("Valor vazio");
     }
     
     
