@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 
 public class Estacionamento {
+    private int id;
     private String nome;
     private int qtdVagas;
     private Endereco endereco;
@@ -15,9 +16,12 @@ public class Estacionamento {
     private Guarda guarda;
     private ArrayList<Administrador> listaAdministradores;
     private PessoaJuridica pessoaJuridica;
+    private String latitude;
+    private String longitude;
 
     
-    public Estacionamento(String nome, int qtdVagas, Endereco endereco, double valorHora, Guarda guarda, ArrayList<Administrador> listaAdministradores, ArrayList<Vaga> listaVagas, PessoaJuridica pessoaJuridica) {
+    public Estacionamento(int id, String nome, int qtdVagas, Endereco endereco, double valorHora, Guarda guarda, ArrayList<Administrador> listaAdministradores, ArrayList<Vaga> listaVagas, PessoaJuridica pessoaJuridica, String latitude, String longitude) {
+        this.id = id;
         this.nome = nome;
         this.qtdVagas = qtdVagas;
         this.endereco = endereco;
@@ -26,8 +30,18 @@ public class Estacionamento {
         this.listaAdministradores = listaAdministradores;
         this.listaVagas = listaVagas;
         this.pessoaJuridica = pessoaJuridica;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getNome() {
         return nome;
     }
@@ -90,6 +104,22 @@ public class Estacionamento {
 
     public void setPessoaJuridica(PessoaJuridica pessoaJuridica) {
         this.pessoaJuridica = pessoaJuridica;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
     
  
