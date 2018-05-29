@@ -32,6 +32,13 @@ public class Veiculo {
         this.marca = marca;
     }
 
+    @Override
+    public String toString() {
+        return "Veiculo{" + "id_placa=" + id_placa + ", ano=" + ano + ", nome=" + nome + ", modelo=" + modelo + ", marca=" + marca + ", PLACA=" + PLACA + '}';
+    }
+    
+    
+
     public void setId_placa(String id_placa) {
         if (id_placa.length()!=PLACA)
             throw new IllegalArgumentException("Placa inválida");
