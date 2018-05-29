@@ -10,13 +10,14 @@ package estacionamento;
  * @author 20131bsi0084
  */
 public class Veiculo {
-    private int id_placa;
+    private String id_placa;
     private int ano;
     private String nome;
     private String modelo;
     private String marca;
+    public final int PLACA = 7;
 
-    public Veiculo(int id_placa, int ano, String nome, String modelo, String marca) {
+    public Veiculo(String id_placa, int ano, String nome, String modelo, String marca) {
         this.id_placa = id_placa;
         this.ano = ano;
         this.nome = nome;
@@ -31,8 +32,11 @@ public class Veiculo {
         this.marca = marca;
     }
 
-    public void setId_placa(int id_placa) {
-        this.id_placa = id_placa;
+    public void setId_placa(String id_placa) {
+        if (id_placa.length()!=PLACA)
+            throw new IllegalArgumentException("Placa inválida");
+        else    
+            this.id_placa = id_placa;
     }
 
     public void setAno(int ano) {
@@ -63,7 +67,7 @@ public class Veiculo {
             throw new IllegalArgumentException("Marca inválida");
     }
 
-    public int getId_placa() {
+    public String getId_placa() {
         return id_placa;
     }
 
