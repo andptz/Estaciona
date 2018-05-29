@@ -7,7 +7,7 @@ package estacionamento;
 
 /**
  *
- * @author 20131bsi0084
+ * @author Edmiltho
  */
 public class Veiculo {
     private String id_placa;

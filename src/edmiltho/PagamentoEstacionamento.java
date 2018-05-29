@@ -7,7 +7,7 @@ package estacionamento;
 
 /**
  *
- * @author Cacherow
+ * @author Edmiltho
  */
 public class PagamentoEstacionamento extends Pagamento {
     public PagamentoEstacionamento(int _valor){

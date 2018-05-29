@@ -7,7 +7,7 @@ package estacionamento;
 
 /**
  *
- * @author Cacherow
+ * @author Edmiltho
  */
 public class Pagamento {
     private int valor;

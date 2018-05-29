@@ -7,7 +7,7 @@ package estacionamento;
 
 /**
  *
- * @author Cacherow
+ * @author Edmiltho
  */
 public class Reserva {
     private int id;
