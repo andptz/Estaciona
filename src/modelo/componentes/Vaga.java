@@ -1,5 +1,5 @@
 
-package modelo.pack_1;
+package modelo.componentes;
 
 
 public class Vaga {

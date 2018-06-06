@@ -1,4 +1,4 @@
-package modelo.pack_3;
+package modelo.operadores;
 
 public class PessoaFisica extends Pessoa {
     

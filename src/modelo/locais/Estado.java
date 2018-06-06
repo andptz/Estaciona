@@ -1,7 +1,8 @@
 
-package modelo.pack_1;
+package modelo.locais;
 
 import java.util.ArrayList;
+import modelo.locais.Cidade;
 
 
 public class Estado {

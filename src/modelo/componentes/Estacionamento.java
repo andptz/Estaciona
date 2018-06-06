@@ -1,9 +1,11 @@
 
-package modelo.pack_1;
-import modelo.pack_3.Administrador;
-import modelo.pack_3.Guarda;
-import modelo.pack_3.PessoaJuridica;
+package modelo.componentes;
+import modelo.componentes.Vaga;
+import modelo.operadores.Administrador;
+import modelo.operadores.Guarda;
+import modelo.operadores.PessoaJuridica;
 import java.util.ArrayList;
+import modelo.locais.Endereco;
 
 
 public class Estacionamento {

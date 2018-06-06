@@ -1,6 +1,6 @@
 
-package modelo.pack_3;
-import modelo.pack_3.ValidacaoString.ValidacaoSTR;
+package modelo.operadores;
+import modelo.usuarios.ValidacaoString.ValidacaoSTR;
 
 public class Funcionario extends PessoaFisica {
     

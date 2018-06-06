@@ -1,5 +1,5 @@
 
-package modelo.pack_1;
+package modelo.locais;
 
 
 public class Bairro {

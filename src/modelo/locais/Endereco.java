@@ -1,7 +1,7 @@
 
-package modelo.pack_1;
+package modelo.locais;
 
-import modelo.pack_3.ValidacaoString.ValidacaoSTR;
+import modelo.usuarios.ValidacaoString.ValidacaoSTR;
 
 
 public class Endereco {

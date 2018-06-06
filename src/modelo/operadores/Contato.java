@@ -1,5 +1,5 @@
 
-package modelo.pack_3;
+package modelo.operadores;
 
 public final class Contato {
     

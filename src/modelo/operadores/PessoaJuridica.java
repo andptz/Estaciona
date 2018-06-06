@@ -1,6 +1,6 @@
-package modelo.pack_3;
+package modelo.operadores;
 
-import modelo.pack_3.ValidacaoString.ValidacaoSTR;
+import modelo.usuarios.ValidacaoString.ValidacaoSTR;
 
 public class PessoaJuridica extends Pessoa{
     
