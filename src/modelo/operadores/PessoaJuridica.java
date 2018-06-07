@@ -1,10 +1,10 @@
 package modelo.operadores;
 
-import modelo.usuarios.ValidacaoString.ValidacaoSTR;
-
 public class PessoaJuridica extends Pessoa{
     
     private String cnpj;
+    
+    private static final int TAM_CNPJ = 14;
     
     //Construtor 1;
     public PessoaJuridica(int id, String nomeCompleto, Contato contato,String cnpj) {
@@ -26,7 +26,7 @@ public class PessoaJuridica extends Pessoa{
     //========= SET ===========
     public final void setCnpj(String cnpj) {
        
-        if(ValidacaoSTR.validaCNPJ(cnpj)){
+        if(cnpj.length() == TAM_CNPJ){
             this.cnpj = cnpj;
         }else{
             throw new IllegalArgumentException("CPNJ invalido.");

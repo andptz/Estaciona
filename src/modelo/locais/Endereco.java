@@ -1,9 +1,6 @@
 
 package modelo.locais;
 
-import modelo.usuarios.ValidacaoString.ValidacaoSTR;
-
-
 public class Endereco {
     private int id;
     private String logradouro;
@@ -14,9 +11,9 @@ public class Endereco {
     private Estado estado;
     
     
-    //public final int TAM_CEP = 9;
-    public final int TAM_COMPLEMENTO = 50;
-    public final int TAM_LOGRADOURO = 100;
+    private final int TAM_CEP = 9;
+    private final int TAM_COMPLEMENTO = 50;
+    private final int TAM_LOGRADOURO = 100;
 
     
     @Override
@@ -77,10 +74,13 @@ public class Endereco {
     }
 
     public void setCep(String cep) {
-        if (ValidacaoSTR.validaCEP(cep))
+        if (cep.length() == TAM_CEP){
             this.cep = cep;
-        else
+        
+        }else{
             throw new IllegalArgumentException("CEP inválido!");
+        }
+            
     }
 
     public String getComplemento() {

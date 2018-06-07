@@ -1,15 +1,18 @@
 
 package modelo.operadores;
-import modelo.usuarios.ValidacaoString.ValidacaoSTR;
+
+import modelo.utilidade.ValidacaoSTR;
 
 public class Funcionario extends PessoaFisica {
     
-
-    private String matricula;
+    //Variaveis;
+    private String matricula;   
     private String dataAdmissao;
     private String dataDemissao;
     
     
+    
+    //Construtor 1;
     public Funcionario(int id, String nomeCompleto, Contato contato, String cpf,
                        String matricula,String dataAdmissao,String dataDemissao) {
         
@@ -19,6 +22,7 @@ public class Funcionario extends PessoaFisica {
         this.dataDemissao = dataDemissao;
     }
     
+    //Construtor 2;
     public Funcionario(String nomeCompleto, Contato contato, String cpf,
                        String matricula,String dataAdmissao,String dataDemissao){
             super(nomeCompleto, contato, cpf);
