@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import modelo.locais.Estado;
 
 
@@ -38,17 +39,22 @@ public class PersistenciaEstado {
     }
 
 
-    public void salvarEstado(Estado estado) {
+    public void salvarEstado(Estado estado) throws SQLException {
         
-        String sql="INSERT INTO estado (nome) "+
+        String sql = "INSERT INTO estado (nome) "+
                 "values ('"
                 +estado.getNome()+
                 "')";
         
         this.executeSQL(sql);
     }
+
+
+    public ArrayList recuperarTodos(){
+        ArrayList<Estado> listaEstados = new ArrayList<Estado>();
         
-        
+        String sql ="SELECT * FROM produto";
+        Connection connection = null;
+        Statement stament = null;
     }
-    
 }
