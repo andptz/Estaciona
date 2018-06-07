@@ -5,20 +5,21 @@ public class Pessoa {
     
     private int id;
     private String nomeCompleto;
-    private Contato contato;
+    private String email;
+    private String telefone;
 
    
     //Construtor 1;
     public Pessoa(int id, String nomeCompleto, Contato contato){
         this.id = id;
         this.nomeCompleto = nomeCompleto;
-        this.contato = contato;
+        
     
     }
     //Construtor 2;
     public Pessoa (String nomeCompleto,Contato contato){
         setNomeCompleto(nomeCompleto);
-        this.contato = contato;
+        
     
     }
     
@@ -26,19 +27,13 @@ public class Pessoa {
     public int getId_pessoa() {
         return id;
     }
-    public Contato getContato() {
-        return contato;
-    }
-    
+   
     public String getNomeCompleto() {
         return nomeCompleto;
     }
     
     // ============ SET ================
-    public void setContato(Contato contato) {
-        this.contato = contato;
-    }
-    
+  
     public final void setNomeCompleto(String nomeCompleto) {
         if(!nomeCompleto.equals("")){
             this.nomeCompleto = nomeCompleto;
@@ -47,4 +42,13 @@ public class Pessoa {
         }      
     }
     
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+    
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
 }
