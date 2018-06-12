@@ -8,17 +8,15 @@ public class Motorista extends PessoaFisica{
     
     //Quantidade de caracter CNH;
     private static final int TAMANHO_CNH = 11;
-    
-    //Construtor 1;
-    public Motorista(int id, String nomeCompleto, Contato contato, String cpf,String cnh) {
-        super(id, nomeCompleto, contato, cpf);
+
+    public Motorista(int id, String nomeCompleto, String email, String telefone, String cpf, String cnh) {
+        super(id, nomeCompleto, email, telefone, cpf);
         this.cnh = cnh;
     }
     
-    //Construtor 2;
-    public Motorista(String nomeCompleto, Contato contato, String cpf,String cnh){
-        super(nomeCompleto, contato, cpf);
-        setCnh(cnh);
+     public Motorista(String nomeCompleto, String email, String telefone, String cpf, String cnh) {
+        super(nomeCompleto, email, telefone, cpf);
+        this.cnh = cnh;
     }
     
     //========= GET ==================

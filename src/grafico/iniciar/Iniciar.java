@@ -1,14 +1,14 @@
 package grafico.iniciar;
 
 import grafico.utilidade.Grafico;
-import grafico.telas.Main;
+import grafico.telas.Login;
 
 
 public class Iniciar {
     
     public static void main(String[] args){
             Grafico.lookAndFeel();
-            Main principal = new Main();
+            Login principal = new Login();
             principal.setVisible(true);
        }
 }
