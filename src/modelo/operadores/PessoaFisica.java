@@ -5,14 +5,14 @@ public class PessoaFisica extends Pessoa {
     private String cpf;
       
     //Construtor 1;
-    public PessoaFisica(int id, String nomeCompleto, Contato contato, String cpf) {
-        super(id, nomeCompleto, contato);
+    public PessoaFisica(int id, String nomeCompleto, String email,String telefone, String cpf) {
+        super(id, nomeCompleto,email,telefone);
         this.cpf = cpf;       
     }
     
     //Construtor 2;
-    public PessoaFisica(String nomeCompleto, Contato contato, String cpf){
-        super(nomeCompleto,contato);
+    public PessoaFisica(String nomeCompleto,String email,String telefone, String cpf){
+        super(nomeCompleto,email,telefone);
         setCpf(cpf);
     }
     

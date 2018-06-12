@@ -3,6 +3,7 @@ package modelo.operadores;
 
 public class Pessoa {
     
+    //Variaveis;
     private int id;
     private String nomeCompleto;
     private String email;
@@ -10,17 +11,20 @@ public class Pessoa {
 
    
     //Construtor 1;
-    public Pessoa(int id, String nomeCompleto, Contato contato){
+    public Pessoa(int id, String nomeCompleto,String email,String telefone){
         this.id = id;
         this.nomeCompleto = nomeCompleto;
+        this.email = email;
+        this.telefone = telefone;
         
     
     }
     //Construtor 2;
-    public Pessoa (String nomeCompleto,Contato contato){
+    public Pessoa (String nomeCompleto,String email,String telefone){
         setNomeCompleto(nomeCompleto);
-        
-    
+        setTelefone(telefone);
+        setEmail(email);
+       
     }
     
     // ============ GET ===============
@@ -32,6 +36,13 @@ public class Pessoa {
         return nomeCompleto;
     }
     
+    public String getEmail() {
+        return email;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
     // ============ SET ================
   
     public final void setNomeCompleto(String nomeCompleto) {
