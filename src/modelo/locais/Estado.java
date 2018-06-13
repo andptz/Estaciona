@@ -17,6 +17,9 @@ public class Estado {
         this.lista_cidades = lista_cidades;
     }
 
+    public Estado() {
+    }
+
     public int getId() {
         return id;
     }
