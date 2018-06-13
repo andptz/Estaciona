@@ -1,14 +1,33 @@
 
 package persistencia.locais;
 
-
 import java.sql.Connection;
 import java.sql.ResultSet;
-import persistencia.utilidade.ConexaoBD;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import modelo.locais.Estado;
+import persistencia.utilidade.ConexaoBD;
+
+
+public class PersistenciaCidade {
+    Connection conexao = null;
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 public class PersistenciaEstado {

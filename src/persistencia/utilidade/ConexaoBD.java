@@ -1,18 +1,19 @@
 
-package persistencia.locais;
+package persistencia.utilidade;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ConexaoBD {
-    Connection connection = null;
+    //Tipo static para <connection> para ela ser enxergada pelos métodos abaixo (que são static)
+    static Connection connection = null;
     
     public static Connection conectar() throws SQLException{
         String sql ="SELECT * FROM estado";
-        Connection connection = null;
         
         String url = "jdbc:postgresql://localhost:5432/BD_ESTACIONA";
         String usuario = "postgres";
@@ -27,9 +28,21 @@ public class ConexaoBD {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ConexaoBD.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
         return connection;
     }
 
+    public static void executeSQL(String sql) throws SQLException {
+        //abre a conexao com o banco de dados.
+        connection = ConexaoBD.conectar();
+        Statement statement = connection.createStatement();
+        
+        //exeucta o sql no meu banco de dados
+        statement.executeUpdate(sql);
+        statement.close();
+        
+        //fecha a conexao com o banco de dados
+        connection.close();
+    }
+    
 
 }
