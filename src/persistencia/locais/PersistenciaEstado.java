@@ -47,9 +47,9 @@ public class PersistenciaEstado {
         ResultSet rs = statement.executeQuery(sql);
         
         while(rs.next()){
-                String nome = rs.getString("nome");
                 Estado estado = new Estado();
-                estado.setNome(nome);
+                estado.setId(rs.getInt("id"));
+                estado.setNome(rs.getString("nome"));
                 listaEstados.add(estado);
             }
         //fecha a conexao com o banco de dados
