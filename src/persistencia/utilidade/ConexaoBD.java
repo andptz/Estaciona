@@ -17,7 +17,7 @@ public class ConexaoBD {
         
         String url = "jdbc:postgresql://localhost:5432/BD_ESTACIONA";
         String usuario = "postgres";
-        String senha = "J3sus";
+        String senha = "aluno";
 
         try {
             //verifica se as classe da biblioteca existem
