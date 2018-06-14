@@ -7,6 +7,7 @@ package grafico.telas;
 
 import grafico.utilidade.Grafico;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import modelo.operadores.Motorista;
 
 
@@ -246,9 +247,14 @@ public class CadastroMotorista extends javax.swing.JFrame {
         String senha = campoSenha.getText();
         String confSenha = campoConfirmaSenha.getText();
         
+        try{
+            //Monta um motorista;
+            Motorista motorista = new Motorista(nomeCompleto,email,telefone,cpf,cnh,senha);
+            JOptionPane.showMessageDialog(null,"OK");
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Erro");
+        }
         
-        
-        Motorista motorista = new Motorista(nomeCompleto,email,telefone,cpf,cnh);
     }//GEN-LAST:event_botaoConfirmaCadastroActionPerformed
 
     private void campoNomeCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomeCompletoActionPerformed

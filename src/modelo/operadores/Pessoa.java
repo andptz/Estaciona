@@ -16,15 +16,17 @@ public class Pessoa {
         this.nomeCompleto = nomeCompleto;
         this.email = email;
         this.telefone = telefone;
-        
-    
     }
+    
     //Construtor 2;
     public Pessoa (String nomeCompleto,String email,String telefone){
+        
         setNomeCompleto(nomeCompleto);
         setTelefone(telefone);
         setEmail(email);
        
+        
+        
     }
     
     // ============ GET ===============
@@ -46,6 +48,7 @@ public class Pessoa {
     // ============ SET ================
   
     public final void setNomeCompleto(String nomeCompleto) {
+        
         if(!nomeCompleto.equals("")){
             this.nomeCompleto = nomeCompleto;
         }else{
