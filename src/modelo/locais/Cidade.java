@@ -9,13 +9,16 @@ public class Cidade {
     private String nome;
     private Estado estado;
     private ArrayList<Bairro> lista_bairros;
+    private int FK_ESTADO_id;
 
-    
-    public Cidade(int id_cidade, String nome, Estado estado, ArrayList<Bairro> lista_bairros) {
-        this.id = id_cidade;
-        this.nome = nome;
+
+    public Cidade() {
+    }
+
+    public Cidade(String nome, Estado estado) {
+        this.nome = nome; 
+        this.FK_ESTADO_id = estado.getId();
         this.estado = estado;
-        this.lista_bairros = lista_bairros;
     }
 
     public int getId() {
@@ -48,6 +51,14 @@ public class Cidade {
 
     public void setLista_bairros(ArrayList<Bairro> lista_bairros) {
         this.lista_bairros = lista_bairros;
+    }
+
+    public int getFK_ESTADO_id() {
+        return FK_ESTADO_id;
+    }
+
+    public void setFK_ESTADO_id(int FK_ESTADO_id) {
+        this.FK_ESTADO_id = FK_ESTADO_id;
     }
    
 }
