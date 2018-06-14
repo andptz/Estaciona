@@ -14,16 +14,31 @@ import modelo.locais.Estado;
 public class PersistenciaEstado {
     Connection conexao = null;
     
-    public void salvarEstado(Estado estado) throws SQLException{
-        String sql = "INSERT INTO estado (nome) "+
-                "values ('"
-                +estado.getNome()+
-                "')";
-        ConexaoBD.executeSQL(sql);
+    public void criarEstado(Estado estado) throws SQLException{
+        String sql;
+        
+        sql = String.format("SELECT E.nome FROM estado E WHERE E.nome ILIKE %s", estado.getNome());
+        
+        conexao = ConexaoBD.conectar();
+        Statement statement = conexao.createStatement();
+        
+        if (!statement.executeQuery(sql).first()) {
+            sql = String.format("INSERT INTO estado (nome)"
+                + "VALUES (%s)", estado.getNome());
+            statement.executeUpdate(sql);
+            System.out.println("Nova cidade cadastrada!");
+        }
+        else{
+            System.out.println("Estado já cadastrado!");
+        }
+        
+        statement.close();
+        conexao.close();
     }
 
-    public ArrayList recuperarTodos() throws ClassNotFoundException, SQLException{
+    public ArrayList recuperarEstados() throws ClassNotFoundException, SQLException{
         ArrayList<Estado> listaEstados = new ArrayList<>();
+        
         String sql ="SELECT * FROM estado";
         
         conexao = ConexaoBD.conectar();
@@ -43,5 +58,4 @@ public class PersistenciaEstado {
         conexao.close();
         return listaEstados;
     }
-
 }
