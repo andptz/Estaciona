@@ -4,17 +4,24 @@ package modelo.operadores;
 public class Administrador extends Funcionario {
     
     private String senha;
-    
+  
     //Construtor 1;
-    public Administrador(int id, String nomeCompleto, Contato contato, String cpf, String matricula, String dataAdmissao, String dataDemissao,String senha) {
-        super(id, nomeCompleto, contato, cpf, matricula, dataAdmissao, dataDemissao);
+    public Administrador(int id, String nomeCompleto, String email, String telefone,String cpf,
+                       String matricula,String dataAdmissao,String dataDemissao, String senha, String confirSenha) {
+        
+        super(id,nomeCompleto, email, telefone, cpf, matricula, dataAdmissao, dataDemissao);
+        
         this.senha = senha;
+    
     }
     
     //Construtor 2;
-    public Administrador(String nomeCompleto, Contato contato, String cpf, String matricula, String dataAdmissao, String dataDemissao,String senha) {
-        super(nomeCompleto, contato, cpf, matricula, dataAdmissao, dataDemissao);
-        this.senha = senha;
+    public Administrador(String nomeCompleto, String email, String telefone,String cpf,
+                       String matricula,String dataAdmissao,String dataDemissao, String senha, String confirSenha) {
+        
+        super(nomeCompleto, email, telefone, cpf, matricula, dataAdmissao, dataDemissao);
+        setSenha(senha);
+        
     }
     
     // ======== GET ==========

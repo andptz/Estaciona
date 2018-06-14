@@ -13,19 +13,19 @@ public class Funcionario extends PessoaFisica {
     
     
     //Construtor 1;
-    public Funcionario(int id, String nomeCompleto, Contato contato, String cpf,
+    public Funcionario(int id, String nomeCompleto, String email, String telefone, String cpf,
                        String matricula,String dataAdmissao,String dataDemissao) {
         
-        super(id, nomeCompleto, contato, cpf);
+        super(nomeCompleto, email, telefone, cpf);
         this.matricula = matricula;
         this.dataAdmissao = dataAdmissao;
         this.dataDemissao = dataDemissao;
     }
     
     //Construtor 2;
-    public Funcionario(String nomeCompleto, Contato contato, String cpf,
+    public Funcionario(String nomeCompleto, String email, String telefone,String cpf,
                        String matricula,String dataAdmissao,String dataDemissao){
-            super(nomeCompleto, contato, cpf);
+            super(nomeCompleto, email, telefone, cpf);
             setDataAdmissao(dataAdmissao);
             setDataDemissao(dataDemissao);
             setMatricula(matricula);
