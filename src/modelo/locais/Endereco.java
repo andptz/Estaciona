@@ -28,6 +28,9 @@ public class Endereco {
         return texto;
     }
 
+    public Endereco(){
+    }
+    
     public Endereco(int id, String logradouro, String complemento, String cep, Bairro bairro, Cidade cidade, Estado estado) {
         this.id = id;
         this.bairro = bairro;
