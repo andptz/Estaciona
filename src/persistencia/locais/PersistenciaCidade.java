@@ -15,7 +15,7 @@ import persistencia.utilidade.ConexaoBD;
 public class PersistenciaCidade {
     Connection conexao = null;
     
-    public void criarCidade(Cidade cidade) throws SQLException{
+    public void insertCidade(Cidade cidade) throws SQLException{
         String sql;
 
         sql = String.format("SELECT C.nome FROM cidade C WHERE C.nome LIKE '%s' AND C.FK_ESTADO_id = %d;", cidade.getNome(), cidade.getEstado().getId());

@@ -14,7 +14,7 @@ import modelo.locais.Estado;
 public class PersistenciaEstado {
     Connection conexao = null;
     
-    public void criarEstado(Estado estado) throws SQLException{
+    public void insertEstado(Estado estado) throws SQLException{
         String sql;
         
         sql = String.format("SELECT E.nome FROM estado E WHERE E.nome ILIKE %s", estado.getNome());
