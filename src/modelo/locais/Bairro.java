@@ -6,6 +6,10 @@ public class Bairro {
     private int id;
     private String nome;
     private Cidade cidade;
+    private int FK_CIDADE_id;
+
+    public Bairro(){
+    }
 
     public Bairro(int id, String nome, Cidade cidade) {
         this.id = id;
@@ -37,7 +41,13 @@ public class Bairro {
         this.cidade = cidade;
     }
 
-    
-    
-    
+    public int getFK_CIDADE_id() {
+        return FK_CIDADE_id;
+    }
+
+    public void setFK_CIDADE_id(int FK_CIDADE_id) {
+        this.FK_CIDADE_id = FK_CIDADE_id;
+    }
+
+
 }
