@@ -21,6 +21,8 @@ public class Estacionamento {
     private String latitude;
     private String longitude;
 
+    public Estacionamento() {
+    }
     
     public Estacionamento(int id, String nome, int qtdVagas, Endereco endereco, double valorHora, Guarda guarda, ArrayList<Administrador> listaAdministradores, ArrayList<Vaga> listaVagas, PessoaJuridica pessoaJuridica, String latitude, String longitude) {
         this.id = id;
