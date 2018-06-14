@@ -7,8 +7,12 @@ package grafico.telas;
 
 import grafico.utilidade.Grafico;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.operadores.Motorista;
+import persistencia.operadores.PersistenciaMotorista;
 
 
 public class CadastroMotorista extends javax.swing.JFrame {
@@ -248,11 +252,22 @@ public class CadastroMotorista extends javax.swing.JFrame {
         String confSenha = campoConfirmaSenha.getText();
         
         try{
-            //Monta um motorista;
-            Motorista motorista = new Motorista(nomeCompleto,email,telefone,cpf,cnh,senha);
-            JOptionPane.showMessageDialog(null,"OK");
-        }catch(Exception e){
+            
+            if(senha.equals(confSenha)){
+               //Monta um motorista;
+               Motorista motorista = new Motorista(nomeCompleto,email,telefone,cpf,cnh,senha);
+               PersistenciaMotorista motoristaP =  new PersistenciaMotorista();
+               
+               motoristaP.insertMotorista(motorista);
+               
+            }else{
+                JOptionPane.showMessageDialog(null,"As senhas não são equivalentes.");
+            }
+            
+        }catch(IllegalArgumentException e){
             JOptionPane.showMessageDialog(null,"Erro");
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastroMotorista.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }//GEN-LAST:event_botaoConfirmaCadastroActionPerformed
