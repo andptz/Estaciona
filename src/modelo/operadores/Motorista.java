@@ -16,7 +16,7 @@ public class Motorista extends PessoaFisica{
     
      public Motorista(String nomeCompleto, String email, String telefone, String cpf, String cnh) {
         super(nomeCompleto, email, telefone, cpf);
-        this.cnh = cnh;
+        setCnh(cnh);
     }
     
     //========= GET ==================
