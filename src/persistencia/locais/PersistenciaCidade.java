@@ -18,7 +18,7 @@ public class PersistenciaCidade {
     public void criarCidade(Cidade cidade) throws SQLException{
         String sql;
 
-        sql = String.format("SELECT C.nome FROM cidade C WHERE C.nome LIKE '%s' AND C.FK_ESTADO_id = %s;", cidade.getNome(), cidade.getEstado().getId());
+        sql = String.format("SELECT C.nome FROM cidade C WHERE C.nome LIKE '%s' AND C.FK_ESTADO_id = %d;", cidade.getNome(), cidade.getEstado().getId());
 
         conexao = ConexaoBD.conectar();
         Statement statement = conexao.createStatement();
