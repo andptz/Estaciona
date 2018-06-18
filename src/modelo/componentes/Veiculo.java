@@ -10,13 +10,14 @@ package modelo.componentes;
  * @author Edmiltho
  */
 public class Veiculo {
+    private int id;
     private String placa;
     private int ano;
     private String modelo;
     private String marca;
     public final int PLACA = 7;
 
-    public Veiculo(String placa, int ano, String modelo, String marca) {
+    public Veiculo(int id, String placa, int ano, String modelo, String marca) {
         this.placa = placa;
         this.ano = ano;
         this.modelo = modelo;
@@ -33,7 +34,15 @@ public class Veiculo {
 
     @Override
     public String toString() {
-        return "Veiculo{" + "placa=" + placa + ", ano=" + ano + ", modelo=" + modelo + ", marca=" + marca + ", PLACA=" + PLACA + '}';
+        return "Veiculo{" + "id=" + id + ", placa=" + placa + ", ano=" + ano + ", modelo=" + modelo + ", marca=" + marca + ", PLACA=" + PLACA + '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
     
