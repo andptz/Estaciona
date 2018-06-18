@@ -10,40 +10,39 @@ package modelo.componentes;
  * @author Edmiltho
  */
 public class Veiculo {
-    private String id_placa;
+    private String placa;
     private int ano;
-    private String nome;
     private String modelo;
     private String marca;
     public final int PLACA = 7;
 
-    public Veiculo(String id_placa, int ano, String nome, String modelo, String marca) {
-        this.id_placa = id_placa;
+    public Veiculo(String placa, int ano, String modelo, String marca) {
+        this.placa = placa;
         this.ano = ano;
-        this.nome = nome;
         this.modelo = modelo;
         this.marca = marca;
     }
 
-    public Veiculo(int ano, String nome, String modelo, String marca) {
+    public Veiculo(int ano, String modelo, String marca) {
         this.ano = ano;
-        this.nome = nome;
         this.modelo = modelo;
         this.marca = marca;
     }
+    
+    public Veiculo(){}
 
     @Override
     public String toString() {
-        return "Veiculo{" + "id_placa=" + id_placa + ", ano=" + ano + ", nome=" + nome + ", modelo=" + modelo + ", marca=" + marca + ", PLACA=" + PLACA + '}';
+        return "Veiculo{" + "placa=" + placa + ", ano=" + ano + ", modelo=" + modelo + ", marca=" + marca + ", PLACA=" + PLACA + '}';
     }
     
     
 
-    public void setId_placa(String id_placa) {
-        if (id_placa.length()!=PLACA)
+    public void setPlaca(String placa) {
+        if (placa.length()!=PLACA)
             throw new IllegalArgumentException("Placa inválida");
         else    
-            this.id_placa = id_placa;
+            this.placa = placa;
     }
 
     public void setAno(int ano) {
@@ -53,12 +52,6 @@ public class Veiculo {
             this.ano=ano;          
     }
 
-    public void setNome(String nome) {
-        if(!nome.equals(""))
-            this.nome = nome;
-        else
-            throw new IllegalArgumentException("Nome vazio");
-    }
 
     public void setModelo(String modelo) {
         if(!modelo.equals(""))
@@ -74,16 +67,12 @@ public class Veiculo {
             throw new IllegalArgumentException("Marca inválida");
     }
 
-    public String getId_placa() {
-        return id_placa;
+    public String getPlaca() {
+        return placa;
     }
 
     public int getAno() {
         return ano;
-    }
-
-    public String getNome() {
-        return nome;
     }
 
     public String getModelo() {
