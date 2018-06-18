@@ -12,9 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import modelo.componentes.Estacionamento;
-import modelo.componentes.Vaga;
 import modelo.componentes.Veiculo;
-import modelo.operadores.Motorista;
 
 public class PersistenciaVeiculo {
     Connection conexao = null;
@@ -26,7 +24,7 @@ public class PersistenciaVeiculo {
         conexao = ConexaoBD.conectar();
         Statement statement = conexao.createStatement();
         
-        sql = String.format("INSERT INTO veiculo (modelo,ano,placa,marca)"
+        sql = String.format("INSERT INTO veiculo (modelo,ano,placa,marca,id)"
         + "VALUES (%s, %d, %s, %s)", veiculo.getModelo(),veiculo.getAno(),veiculo.getPlaca(),veiculo.getMarca());
         statement.executeUpdate(sql);
         System.out.println("Novo veículo cadastrado!");
@@ -51,6 +49,7 @@ public class PersistenciaVeiculo {
         
         while(rs.next()){
                 Veiculo veiculo = new Veiculo();
+                veiculo.setId(rs.getInt("ID"));
                 veiculo.setPlaca(rs.getString("placa"));
                 veiculo.setAno(rs.getInt("ano"));
                 veiculo.setModelo(rs.getString("modelo"));
