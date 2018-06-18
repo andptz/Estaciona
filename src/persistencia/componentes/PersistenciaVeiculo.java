@@ -41,7 +41,7 @@ public class PersistenciaVeiculo {
         ArrayList<Veiculo> listaVeiculos = new ArrayList<>();
         String sql;
         
-        sql = String.format("SELECT * FROM public.veiculo V WHERE V.fk_MOTORISTA_ID = %d;", estacionamento.getId());
+        sql = String.format("SELECT * FROM public.veiculo");
         
         conexao = ConexaoBD.conectar();
         Statement statement = conexao.createStatement();
