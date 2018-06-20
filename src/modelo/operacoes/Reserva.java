@@ -5,24 +5,76 @@
  */
 package modelo.operacoes;
 
-/**
- *
- * @author Edmiltho
- */
+import modelo.operadores.Motorista;
+import modelo.componentes.Veiculo;
+import modelo.componentes.Vaga;
+
 public class Reserva {
     private int id;
     private String horaReserva;
     private String dataReserva;
+    private String horaSaida;
+    private Motorista motorista;
+    private Veiculo veiculo;
+    private Vaga vaga;
 
-    public Reserva(int id, String horaReserva, String dataReserva) {
+    public Reserva(int id, String horaReserva, String dataReserva, String horaSaida, Motorista motorista, Veiculo veiculo, Vaga vaga) {
         this.id = id;
         this.horaReserva = horaReserva;
         this.dataReserva = dataReserva;
+        this.horaSaida = horaSaida;
+        this.motorista = motorista;
+        this.veiculo = veiculo;
+        this.vaga = vaga;
     }
 
-    public Reserva(String horaReserva, String dataReserva) {
+    public Reserva(String horaReserva, String dataReserva, String horaSaida, Motorista motorista, Veiculo veiculo, Vaga vaga) {
         this.horaReserva = horaReserva;
         this.dataReserva = dataReserva;
+        this.horaSaida = horaSaida;
+        this.motorista = motorista;
+        this.veiculo = veiculo;
+        this.vaga = vaga;
+    }
+
+    public Reserva(String horaReserva, String dataReserva, String horaSaida) {
+        this.horaReserva = horaReserva;
+        this.dataReserva = dataReserva;
+        this.horaSaida = horaSaida;
+    }
+
+    public Reserva(){}
+
+    public Motorista getMotorista() {
+        return motorista;
+    }
+
+    public void setMotorista(Motorista motorista) {
+        this.motorista = motorista;
+    }
+
+    public Veiculo getVeiculo() {
+        return veiculo;
+    }
+
+    public void setVeiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
+    }
+
+    public Vaga getVaga() {
+        return vaga;
+    }
+
+    public void setVaga(Vaga vaga) {
+        this.vaga = vaga;
+    }
+
+    public String getHoraSaida() {
+        return horaSaida;
+    }
+
+    public void setHoraSaida(String horaSaida) {
+        this.horaSaida = horaSaida;
     }
 
     public void setId(int id) {
