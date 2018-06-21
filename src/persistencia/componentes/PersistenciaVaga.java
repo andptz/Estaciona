@@ -30,7 +30,7 @@ public class PersistenciaVaga {
         
         //if (!statement.executeQuery(sql).first()) {
         
-        sql = String.format("INSERT INTO estado (FK_VAGA_id,status,andar,numero,latitude,longitude)"
+        sql = String.format("INSERT INTO vaga (FK_VAGA_id,status,andar,numero,latitude,longitude)"
         + "VALUES (%d, %s, %d, %d, %s, %s)", vaga.getId(),vaga.getStatus(),vaga.getAndar(),vaga.getNumero(),vaga.getLatitude(),vaga.getLongitude());
         statement.executeUpdate(sql);
         System.out.println("Nova cidade cadastrada!");
