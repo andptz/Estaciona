@@ -5,34 +5,73 @@
  */
 package modelo.operacoes;
 
+import modelo.componentes.Vaga;
+import modelo.operadores.Motorista;
 
-public class PagamentoEstacionamento extends Pagamento{
-    public PagamentoEstacionamento(int _valor){
-        super(_valor);
-    }
+public class PagamentoEstacionamento{
     
-    private String status;
+    private int id;
+    private double valor;
     private String data;
+    private Vaga vaga;
+    private Motorista motorista;
 
-    public PagamentoEstacionamento(String status, String data, int valor) {
-        super(valor);
-        this.status = status;
+    public PagamentoEstacionamento(int id, double valor, String data, Vaga vaga, Motorista motorista) {
+        this.id = id;
+        this.valor = valor;
+        this.data = data;
+        this.vaga = vaga;
+        this.motorista = motorista;
+    }
+
+    public PagamentoEstacionamento(double valor, String data, Vaga vaga, Motorista motorista) {
+        this.valor = valor;
+        this.data = data;
+        this.vaga = vaga;
+        this.motorista = motorista;
+    }
+
+    public PagamentoEstacionamento(double valor, String data) {
+        this.valor = valor;
         this.data = data;
     }
+    
+    public PagamentoEstacionamento(){}
 
-    public String getStatus() {
-        return status;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public Vaga getVaga() {
+        return vaga;
+    }
+
+    public void setVaga(Vaga vaga) {
+        this.vaga = vaga;
+    }
+
+    public Motorista getMotorista() {
+        return motorista;
+    }
+
+    public void setMotorista(Motorista motorista) {
+        this.motorista = motorista;
     }
 
     public String getData() {
         return data;
-    }
-
-    public void setStatus(String status) {
-        if(!status.equals(""))
-            this.status = status;
-        else
-             throw new IllegalArgumentException("Status inválido");
     }
 
     public void setData(String data) {
