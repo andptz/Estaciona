@@ -58,5 +58,15 @@ public class PersistenciaEstado {
         conexao.close();
         return listaEstados;
     }
+
     
+    public String toString(ArrayList<Estado> listaEstados){
+        String texto = null;
+        
+        for (Estado estado : listaEstados) {
+            texto += estado.getId() + " - " + estado.getNome();
+        }
+                
+        return texto;
+    }
 }
