@@ -29,7 +29,7 @@ public class PersistenciaEstado {
             System.out.println("Nova cidade cadastrada!");
         }
         else{
-            System.out.println("Estado já cadastrado!");
+            System.out.println("Estado jÃ¡ cadastrado!");
         }
         
         statement.close();
@@ -58,4 +58,5 @@ public class PersistenciaEstado {
         conexao.close();
         return listaEstados;
     }
+    
 }
