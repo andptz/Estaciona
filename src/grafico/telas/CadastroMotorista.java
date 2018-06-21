@@ -265,6 +265,7 @@ public class CadastroMotorista extends javax.swing.JFrame {
             }
             
         }catch(IllegalArgumentException e){
+            e.printStackTrace();
             JOptionPane.showMessageDialog(null,"Erro");
         } catch (SQLException ex) {
             Logger.getLogger(CadastroMotorista.class.getName()).log(Level.SEVERE, null, ex);

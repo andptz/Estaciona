@@ -8,24 +8,31 @@ public class Pessoa {
     private String nomeCompleto;
     private String email;
     private String telefone;
+    String senha;
 
    
     //Construtor 1;
-    public Pessoa(int id, String nomeCompleto,String email,String telefone){
+    public Pessoa(int id, String nomeCompleto,String email,String telefone,String senha){
         this.id = id;
         this.nomeCompleto = nomeCompleto;
         this.email = email;
         this.telefone = telefone;
+        this.senha = senha;
     }
     
     //Construtor 2;
-    public Pessoa (String nomeCompleto,String email,String telefone){
+    public Pessoa (String nomeCompleto,String email,String telefone,String senha){
         
         setNomeCompleto(nomeCompleto);
         setTelefone(telefone);
         setEmail(email);
+        setSenha(senha);
        
         
+        
+    }
+
+    public Pessoa() {
         
     }
     
@@ -62,6 +69,14 @@ public class Pessoa {
     
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setSenha(String senha) {
+       this.senha = senha;
     }
 
 

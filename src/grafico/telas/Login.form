@@ -8,9 +8,6 @@
     </Property>
     <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
     <Property name="undecorated" type="boolean" value="true"/>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[400, 700]"/>
-    </Property>
     <Property name="resizable" type="boolean" value="false"/>
     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[300, 500]"/>
@@ -41,8 +38,8 @@
                   <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField1" min="-2" pref="254" max="-2" attributes="0"/>
-                      <Component id="jPasswordField1" min="-2" pref="254" max="-2" attributes="0"/>
+                      <Component id="campoEmail" min="-2" pref="254" max="-2" attributes="0"/>
+                      <Component id="campoSenha" min="-2" pref="254" max="-2" attributes="0"/>
                       <Component id="jButton2" min="-2" pref="254" max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" pref="254" max="-2" attributes="0"/>
                   </Group>
@@ -77,11 +74,11 @@
               <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Component id="jTextField1" min="-2" pref="36" max="-2" attributes="0"/>
+              <Component id="campoEmail" min="-2" pref="36" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Component id="jPasswordField1" min="-2" pref="37" max="-2" attributes="0"/>
+              <Component id="campoSenha" min="-2" pref="37" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
               <Component id="jButton2" min="-2" pref="43" max="-2" attributes="0"/>
               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
@@ -111,15 +108,18 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="campoEmail">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoEmailActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="jPasswordField1">
+    <Component class="javax.swing.JPasswordField" name="campoSenha">
       <Properties>
         <Property name="text" type="java.lang.String" value="jPasswordField1"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoSenhaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>

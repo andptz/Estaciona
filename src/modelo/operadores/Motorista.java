@@ -1,41 +1,44 @@
 
 package modelo.operadores;
 
-public class Motorista extends PessoaFisica{
+public final class Motorista extends PessoaFisica{
  
     private String cnh;
-    private String senha;
+    private double creditos;
+
     
     //Quantidade de caracter CNH;
     private static final int TAMANHO_CNH = 11;
 
-    public Motorista(int id, String nomeCompleto, String email, String telefone, String cpf, String cnh,String senha) {
-        super(id, nomeCompleto, email, telefone, cpf);
+    public Motorista(int id, String nomeCompleto, String email, String telefone, String senha ,String cpf, String cnh,double creditos) {
+        super(id, nomeCompleto, email, telefone,senha, cpf);
         this.cnh = cnh;
-        this.senha = senha;
+        this.creditos = creditos;
+
     }
     
-     public Motorista(String nomeCompleto, String email, String telefone, String cpf, String cnh,String senha) {
-        super(nomeCompleto, email, telefone, cpf);
+     public Motorista(String nomeCompleto, String email, String telefone, String senha,String cpf, String cnh) {
+        super( nomeCompleto, email, telefone,senha, cpf);
         setCnh(cnh);
-        setSenha(senha);
+        setCreditos(0);
+        
     }
-    
+
+  
     //========= GET ==================
     public String getCnh() {
         return cnh;
     
     }
    
-    public String getSenha() {
-        return senha;
+    
+    public double getCreditos() {
+        return creditos;
     }
+
     
     // ========= SET ==================
     
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
 
     public final void setCnh(String cnh) {
         
@@ -47,5 +50,15 @@ public class Motorista extends PessoaFisica{
         
         
     }
+    
+    public void setCreditos(double creditos) {
+        this.creditos = creditos;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+    
+
    
 }
