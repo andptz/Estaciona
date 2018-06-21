@@ -1,6 +1,7 @@
 
 package modelo.locais;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -8,6 +9,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import persistencia.locais.PersistenciaEstado;
 
 
 public class EstadoTest {
@@ -34,7 +36,7 @@ public class EstadoTest {
     /**
      * Test of getId method, of class Estado.
      */
-    @Test
+    //@Test
     public void testGetId() {
         System.out.println("getId");
         Estado instance = new Estado();
@@ -48,7 +50,7 @@ public class EstadoTest {
     /**
      * Test of setId method, of class Estado.
      */
-    @Test
+   // @Test
     public void testSetId() {
         System.out.println("setId");
         int id = 0;
@@ -61,7 +63,7 @@ public class EstadoTest {
     /**
      * Test of getNome method, of class Estado.
      */
-    @Test
+    //@Test
     public void testGetNome() {
         System.out.println("getNome");
         Estado instance = new Estado();
@@ -75,7 +77,7 @@ public class EstadoTest {
     /**
      * Test of setNome method, of class Estado.
      */
-    @Test
+   // @Test
     public void testSetNome() {
         System.out.println("setNome");
         String nome = "";
@@ -88,7 +90,7 @@ public class EstadoTest {
     /**
      * Test of getLista_cidades method, of class Estado.
      */
-    @Test
+   // @Test
     public void testGetLista_cidades() {
         System.out.println("getLista_cidades");
         Estado instance = new Estado();
@@ -102,7 +104,7 @@ public class EstadoTest {
     /**
      * Test of setLista_cidades method, of class Estado.
      */
-    @Test
+   // @Test
     public void testSetLista_cidades() {
         System.out.println("setLista_cidades");
         ArrayList<Cidade> lista_cidades = null;
@@ -111,5 +113,21 @@ public class EstadoTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+    
+    @Test
+    public void recuperarEstados() throws ClassNotFoundException, SQLException {
+        PersistenciaEstado persistencia = new PersistenciaEstado();
+        ArrayList<Estado> listaEstados;
+        
+        listaEstados = persistencia.recuperarEstados();
+        
+        //mÃ©todo que verifica
+        //assertNotEquals(null, listaEstados);
+        //assertEquals("", listaEstados.get(0).getNome());
+        //Verifica se há 27 registros na tabela (27 estados)
+        assertEquals(27, listaEstados.size());
+        listaEstados.toString();
+    }
+    
     
 }
