@@ -107,7 +107,7 @@ public class PersistenciaMotorista {
         
             JOptionPane.showMessageDialog(null,"Dados Inválidos.");
             
-            return 0;
+            return -1;
         }  
            
     }

@@ -8,7 +8,7 @@ public class Pessoa {
     private String nomeCompleto;
     private String email;
     private String telefone;
-    private String senha;
+    String senha;
 
    
     //Construtor 1;

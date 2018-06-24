@@ -170,7 +170,7 @@ public class Login extends javax.swing.JFrame {
          
         try {
             int id = pmoto.loginMotorista(email, senha);
-            if (id != 0){
+            if (id != -1){
                 new Home(id).setVisible(true);
                 setVisible(false);
             }

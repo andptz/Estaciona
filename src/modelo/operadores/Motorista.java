@@ -55,7 +55,7 @@ public final class Motorista extends PessoaFisica{
     }
 
     public String getSenha() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.senha;
     }
 
   
