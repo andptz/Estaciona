@@ -221,9 +221,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="campoSenha">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoSenhaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel14">
       <Properties>
@@ -237,9 +237,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="campoConfirmaSenha">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoConfirmaSenhaActionPerformed"/>
       </Events>

@@ -30,16 +30,7 @@ public final class Administrador extends Funcionario {
     }
     
     // ======== SET ==========
-    public void setSenha(String senha) {
-        
-        if(!senha.equals("")){
-            this.senha = senha;
-        }else{
-            throw new IllegalArgumentException("Senha Invalida.");
-        }
-        
-        
-    }
+   
     
     
 }

@@ -6,8 +6,7 @@ import java.awt.Color;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import modelo.operadores.Motorista;
-import modelo.operadores.Pessoa;
+
 import persistencia.operadores.PersistenciaMotorista;
 
 public class Login extends javax.swing.JFrame {
@@ -63,7 +62,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        campoSenha.setText("jPasswordField1");
         campoSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoSenhaActionPerformed(evt);
@@ -172,6 +170,10 @@ public class Login extends javax.swing.JFrame {
          
         try {
             int id = pmoto.loginMotorista(email, senha);
+            if (id != 0){
+                new Home(id).setVisible(true);
+                setVisible(false);
+            }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {

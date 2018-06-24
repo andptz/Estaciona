@@ -1,17 +1,17 @@
 
 package persistencia.operadores;
 
-import java.math.BigDecimal;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+
 
 import javax.swing.JOptionPane;
 
 import modelo.operadores.Motorista;
-import modelo.operadores.Pessoa;
+
 
 import persistencia.utilidade.ConexaoBD;
 
@@ -21,8 +21,67 @@ public class PersistenciaMotorista {
     
     Connection conexao = null;
     
+    public Motorista carregaMotorista(int id) throws SQLException{
+        
+        conexao = ConexaoBD.conectar();
+        
+        PreparedStatement ps = conexao.prepareStatement("SELECT * FROM pessoa WHERE  id=?");
+        
+        ps.setInt(1,id); //senha
+        
+        //Executa SQL e guarda ID;
+        ResultSet rs = ps.executeQuery();
+        System.out.println("ok");
+        
+        if(rs.next()){
+            
+            //Guarda oque carregou de Pessoa;
+            String nome = rs.getString("nome");
+            String telefone = rs.getString("telefone");
+            String email = rs.getString("email");
+            
+            //SQL para tabela pessoa Fisica;
+            ps = conexao.prepareStatement("SELECT * FROM pessoa_fisica WHERE  fk_pessoa_id=?");
+            ps.setInt(1,id); //senha
+        
+            //Executa SQL e guarda ID;
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                
+                //Guarda oque carrego de Pessoa Fisica;
+                String cpf = rs.getString("cpf");
+
+                //SQL para tabela Motorista;
+                ps = conexao.prepareStatement("SELECT * FROM motorista WHERE  fk_pessoa_fisica_fk_pessoa_id=?");
+                ps.setInt(1,id); //senha
+
+                //Executa SQL e guarda ID;
+                rs = ps.executeQuery();
+                rs.next();
+                //Guarda oque carrego de motorista;
+                String cnh = rs.getString("cnh");
+                double creditos = rs.getDouble("creditos");
+
+                Motorista moto = new Motorista(nome,email,telefone,null,cpf,cnh,creditos);
+                return moto;
+            }else{
+                return null;
+            }
+            
+            
+            
+            
+        }else{
+        
+            JOptionPane.showMessageDialog(null,"Dados Inválidos.");
+            
+            return null;
+        }
+        
+    }
  
-    //Metodo que retorna um array com todas as vagas do banco de dados.
+    //Metodo id do Motorista;
     public int loginMotorista(String email,String senha) throws ClassNotFoundException, SQLException{
         
         
@@ -107,8 +166,6 @@ public class PersistenciaMotorista {
             rs = ps.executeQuery();
             
 
-
-            
             //=============================================
             //Cria Motorista;
             ps = conexao.prepareStatement("Insert into motorista(creditos,cnh,fk_pessoa_fisica_fk_pessoa_id)" + 

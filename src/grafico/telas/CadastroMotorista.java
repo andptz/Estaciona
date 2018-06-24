@@ -19,6 +19,7 @@ public class CadastroMotorista extends javax.swing.JFrame {
 
     
     private final Color minhaColor = new Color(96,102,96);
+   
     
     public CadastroMotorista() {
         setDefaultLookAndFeelDecorated(true); 
@@ -66,7 +67,6 @@ public class CadastroMotorista extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFocusTraversalPolicyProvider(true);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(400, 720));
         setResizable(false);
         setSize(new java.awt.Dimension(300, 500));
 
@@ -123,13 +123,16 @@ public class CadastroMotorista extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Senha");
 
-        campoSenha.setText("jPasswordField1");
+        campoSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoSenhaActionPerformed(evt);
+            }
+        });
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Senha confirma");
 
-        campoConfirmaSenha.setText("jPasswordField1");
         campoConfirmaSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoConfirmaSenhaActionPerformed(evt);
@@ -255,10 +258,14 @@ public class CadastroMotorista extends javax.swing.JFrame {
             
             if(senha.equals(confSenha)){
                //Monta um motorista;
-               Motorista motorista = new Motorista(nomeCompleto,email,telefone,cpf,cnh,senha);
+               Motorista motorista = new Motorista(nomeCompleto,email,telefone,cpf,cnh,senha,0);
                PersistenciaMotorista motoristaP =  new PersistenciaMotorista();
                
                motoristaP.insertMotorista(motorista);
+               JOptionPane.showMessageDialog(null,"Cadastrado com Sucesso.");
+               setVisible(false);
+               new Login().setVisible(true);
+               
                
             }else{
                 JOptionPane.showMessageDialog(null,"As senhas não são equivalentes.");
@@ -279,6 +286,7 @@ public class CadastroMotorista extends javax.swing.JFrame {
 
     private void botaoVoltarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarLoginActionPerformed
         setVisible(false);
+        new Login().setVisible(true);
             
     }//GEN-LAST:event_botaoVoltarLoginActionPerformed
 
@@ -305,6 +313,10 @@ public class CadastroMotorista extends javax.swing.JFrame {
     private void campoCNHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCNHActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoCNHActionPerformed
+
+    private void campoSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoSenhaActionPerformed
 
     /**
      * @param args the command line arguments

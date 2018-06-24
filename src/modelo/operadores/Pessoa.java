@@ -8,7 +8,7 @@ public class Pessoa {
     private String nomeCompleto;
     private String email;
     private String telefone;
-    String senha;
+    private String senha;
 
    
     //Construtor 1;
@@ -49,7 +49,7 @@ public class Pessoa {
         return email;
     }
 
-    public String getTelefone() {
+    public final String getTelefone() {
         return telefone;
     }
     // ============ SET ================
@@ -75,7 +75,7 @@ public class Pessoa {
         this.id = id;
     }
 
-    public void setSenha(String senha) {
+    public final void setSenha(String senha) {
        this.senha = senha;
     }
 

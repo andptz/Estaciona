@@ -17,13 +17,12 @@ public final class Motorista extends PessoaFisica{
 
     }
     
-     public Motorista(String nomeCompleto, String email, String telefone, String senha,String cpf, String cnh) {
+     public Motorista(String nomeCompleto, String email, String telefone, String senha,String cpf, String cnh,double creditos) {
         super( nomeCompleto, email, telefone,senha, cpf);
         setCnh(cnh);
-        setCreditos(0);
+        setCreditos(creditos);
         
     }
-
   
     //========= GET ==================
     public String getCnh() {
@@ -56,8 +55,10 @@ public final class Motorista extends PessoaFisica{
     }
 
     public String getSenha() {
-        return senha;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+  
     
 
    
