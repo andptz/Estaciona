@@ -14,6 +14,7 @@ import modelo.locais.Estado;
 public class PersistenciaEstado {
     Connection conexao = null;
     
+    //Método insertEstado() não é utilizado, foi criado apenas para fins didáticos.
     public void insertEstado(Estado estado) throws SQLException{
         String sql;
         
