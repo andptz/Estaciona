@@ -120,13 +120,14 @@ public class EstadoTest {
         ArrayList<Estado> listaEstados;
         
         listaEstados = persistencia.recuperarEstados();
+       //System.out.println(persistencia.toString(listaEstados));
         
-        //mÃ©todo que verifica
         //assertNotEquals(null, listaEstados);
         //assertEquals("", listaEstados.get(0).getNome());
-        //Verifica se há 27 registros na tabela (27 estados)
+        //Verifica se há 27 registros (estados) no array.
         assertEquals(27, listaEstados.size());
-        listaEstados.toString();
+        
+        
     }
     
     
