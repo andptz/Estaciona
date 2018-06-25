@@ -56,17 +56,18 @@ public class PersistenciaEstado {
         //fecha a conexao com o banco de dados
         statement.close();
         conexao.close();
+        
         return listaEstados;
     }
 
     
     public String toString(ArrayList<Estado> listaEstados){
-        String texto = null;
+        String texto = "";
         
         for (Estado estado : listaEstados) {
-            texto += estado.getId() + " - " + estado.getNome();
+            texto += estado.getId() + " - " + estado.getNome()+ "\n";
         }
-                
+        
         return texto;
     }
 }
