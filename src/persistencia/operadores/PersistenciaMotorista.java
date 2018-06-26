@@ -107,12 +107,24 @@ public class PersistenciaMotorista {
         
             JOptionPane.showMessageDialog(null,"Dados Inválidos.");
             
-            return 0;
+            return -1;
         }  
            
     }
     
+    public void alterarSenha (int id, String senha) throws SQLException{
+        
+        conexao = ConexaoBD.conectar();
+        
+        //Update Senha;
+        PreparedStatement ps = conexao.prepareStatement("Update pessoa set senha=? where id = ? returning id;");
+        ps.setString(1,senha); // Senha
+        ps.setInt(2,id); // ID
+        
+        ResultSet rs = ps.executeQuery();
+        
     
+    }
     
     public void insertMotorista (Motorista motorista) throws SQLException{
  
