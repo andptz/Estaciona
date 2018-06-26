@@ -52,6 +52,8 @@ public class PersistenciaEstado {
             Estado estado = new Estado();
             estado.setId(rs.getInt("id"));
             estado.setNome(rs.getString("nome"));
+            PersistenciaCidade cidade = new PersistenciaCidade();
+            estado.setLista_cidades(cidade.recuperarCidades(estado));
             listaEstados.add(estado);
             }
         //fecha a conexao com o banco de dados
