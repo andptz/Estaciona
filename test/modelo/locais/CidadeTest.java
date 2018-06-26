@@ -156,7 +156,6 @@ public class CidadeTest {
         PersistenciaEstado persistEstado = new PersistenciaEstado();
         ArrayList<Estado> listaEstados;
         
-        
         PersistenciaCidade persistCidade = new PersistenciaCidade();
         
         ArrayList<Cidade> listaCidades;
@@ -164,10 +163,10 @@ public class CidadeTest {
         listaEstados = persistEstado.recuperarEstados();
         persistEstado.toString(listaEstados);
         
-        Estado est = listaEstados.get(5);
+        Estado est = listaEstados.get(7);
         
         listaCidades = persistCidade.recuperarCidades(est);
-        System.out.println(persistCidade.toString(listaCidades));
+        //System.out.println(persistCidade.toString(listaCidades));
         
         assertNotEquals(null, listaEstados.size());
     }

@@ -63,7 +63,7 @@ public class PersistenciaEstado {
         return listaEstados;
     }
 
-    //Método que formata a saída em texto dos estados.
+    //Método que formata a saída em texto dos estados. (Não utilizado)
     public String toString(ArrayList<Estado> listaEstados){
         String texto = "";
         
