@@ -49,10 +49,10 @@ public class PersistenciaEstado {
         ResultSet rs = statement.executeQuery(sql);
         
         while(rs.next()){
-                Estado estado = new Estado();
-                estado.setId(rs.getInt("id"));
-                estado.setNome(rs.getString("nome"));
-                listaEstados.add(estado);
+            Estado estado = new Estado();
+            estado.setId(rs.getInt("id"));
+            estado.setNome(rs.getString("nome"));
+            listaEstados.add(estado);
             }
         //fecha a conexao com o banco de dados
         statement.close();
@@ -61,13 +61,17 @@ public class PersistenciaEstado {
         return listaEstados;
     }
 
-    
+    //Método que formata a saída em texto dos estados.
     public String toString(ArrayList<Estado> listaEstados){
         String texto = "";
         
         for (Estado estado : listaEstados) {
             texto += estado.getId() + " - " + estado.getNome()+ "\n";
         }
+        
+        //Removendo o último caracter ("\n") da string.
+        if (texto.length() > 0)
+            texto = texto.substring(0, texto.length()-1);
         
         return texto;
     }
