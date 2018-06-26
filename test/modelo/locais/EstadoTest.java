@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import persistencia.locais.PersistenciaCidade;
 import persistencia.locais.PersistenciaEstado;
 
 
@@ -118,17 +119,13 @@ public class EstadoTest {
     public void recuperarEstados() throws ClassNotFoundException, SQLException {
         PersistenciaEstado persistencia = new PersistenciaEstado();
         ArrayList<Estado> listaEstados;
-        
+                
         listaEstados = persistencia.recuperarEstados();
-       //System.out.println(persistencia.toString(listaEstados));
+        System.out.println(persistencia.toString(listaEstados));
         
         //assertNotEquals(null, listaEstados);
         //assertEquals("", listaEstados.get(0).getNome());
         //Verifica se há 27 registros (estados) no array.
         assertEquals(27, listaEstados.size());
-        
-        
     }
-    
-    
 }
