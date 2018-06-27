@@ -13,7 +13,7 @@ public class ConexaoBD {
     static Connection connection = null;
     
     public static Connection conectar() throws SQLException{
-        String url = "jdbc:postgresql://localhost:5432/postgres";
+        String url = "jdbc:postgresql://localhost:5432/postgres_poo1";
         String usuario = "postgres";
         String senha = "aluno";
 
@@ -28,7 +28,7 @@ public class ConexaoBD {
         }
         return connection;
     }
-
+    
     public static void executeSQL(String sql) throws SQLException {
         //abre a conexao com o banco de dados.
         connection = ConexaoBD.conectar();

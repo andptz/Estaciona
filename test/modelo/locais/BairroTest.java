@@ -9,13 +9,14 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import persistencia.locais.PersistenciaBairro;
 import persistencia.locais.PersistenciaCidade;
 import persistencia.locais.PersistenciaEstado;
 
 
-public class CidadeTest {
+public class BairroTest {
     
-    public CidadeTest() {
+    public BairroTest() {
     }
     
     @BeforeClass
@@ -38,7 +39,7 @@ public class CidadeTest {
 //    @Test
     public void testGetId() {
         System.out.println("getId");
-        Cidade instance = new Cidade();
+        Bairro instance = new Bairro();
         int expResult = 0;
         int result = instance.getId();
         assertEquals(expResult, result);
@@ -51,19 +52,17 @@ public class CidadeTest {
     public void testSetId() {
         System.out.println("setId");
         int id = 0;
-        Cidade instance = new Cidade();
+        Bairro instance = new Bairro();
         instance.setId(id);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getNome method, of class Cidade.
-     */
+
 //    @Test
     public void testGetNome() {
         System.out.println("getNome");
-        Cidade instance = new Cidade();
+        Bairro instance = new Bairro();
         String expResult = "";
         String result = instance.getNome();
         assertEquals(expResult, result);
@@ -76,7 +75,7 @@ public class CidadeTest {
     public void testSetNome() {
         System.out.println("setNome");
         String nome = "";
-        Cidade instance = new Cidade();
+        Bairro instance = new Bairro();
         instance.setNome(nome);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -84,11 +83,11 @@ public class CidadeTest {
 
 
 //    @Test
-    public void testGetEstado() {
-        System.out.println("getEstado");
-        Cidade instance = new Cidade();
-        Estado expResult = null;
-        Estado result = instance.getEstado();
+    public void testGetCidade() {
+        System.out.println("getCidade");
+        Bairro instance = new Bairro();
+        Cidade expResult = null;
+        Cidade result = instance.getCidade();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -96,45 +95,22 @@ public class CidadeTest {
 
 
 //    @Test
-    public void testSetEstado() {
-        System.out.println("setEstado");
-        Estado estado = null;
-        Cidade instance = new Cidade();
-        instance.setEstado(estado);
+    public void testSetCidade() {
+        System.out.println("setCidade");
+        Cidade cidade = null;
+        Bairro instance = new Bairro();
+        instance.setCidade(cidade);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
 
 //    @Test
-    public void testGetLista_bairros() {
-        System.out.println("getLista_bairros");
-        Cidade instance = new Cidade();
-        ArrayList<Bairro> expResult = null;
-        ArrayList<Bairro> result = instance.getLista_bairros();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-
-//    @Test
-    public void testSetLista_bairros() {
-        System.out.println("setLista_bairros");
-        ArrayList<Bairro> lista_bairros = null;
-        Cidade instance = new Cidade();
-        instance.setLista_bairros(lista_bairros);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-
-//    @Test
-    public void testGetFK_ESTADO_id() {
-        System.out.println("getFK_ESTADO_id");
-        Cidade instance = new Cidade();
+    public void testGetFK_CIDADE_id() {
+        System.out.println("getFK_CIDADE_id");
+        Bairro instance = new Bairro();
         int expResult = 0;
-        int result = instance.getFK_ESTADO_id();
+        int result = instance.getFK_CIDADE_id();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -142,32 +118,28 @@ public class CidadeTest {
 
 
 //    @Test
-    public void testSetFK_ESTADO_id() {
-        System.out.println("setFK_ESTADO_id");
-        int FK_ESTADO_id = 0;
-        Cidade instance = new Cidade();
-        instance.setFK_ESTADO_id(FK_ESTADO_id);
+    public void testSetFK_CIDADE_id() {
+        System.out.println("setFK_CIDADE_id");
+        int FK_CIDADE_id = 0;
+        Bairro instance = new Bairro();
+        instance.setFK_CIDADE_id(FK_CIDADE_id);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
     
     @Test
-    public void testRecuperarCidades() throws SQLException, ClassNotFoundException{
-        PersistenciaEstado persistEstado = new PersistenciaEstado();
+    public void testRecuperarBairros() throws ClassNotFoundException, SQLException {
+        PersistenciaBairro persistBairro = new PersistenciaBairro();
         PersistenciaCidade persistCidade = new PersistenciaCidade();
+        PersistenciaEstado persistEstado = new PersistenciaEstado();
         
-        ArrayList<Estado> listaEstados;
-        ArrayList<Cidade> listaCidades;
+        ArrayList<Estado> listaEstados = persistEstado.recuperarEstados();
+        ArrayList<Cidade> listaCidades = persistCidade.recuperarCidades(listaEstados.get(7));
+        ArrayList<Bairro> listaBairros = persistBairro.recuperarBairros(listaCidades.get(0));
         
-        listaEstados = persistEstado.recuperarEstados();
-        persistEstado.toString(listaEstados);
+        System.out.println(persistBairro.toString(listaBairros));
         
-        Estado est = listaEstados.get(7);
-        
-        listaCidades = persistCidade.recuperarCidades(est);
-        //System.out.println(persistCidade.toString(listaCidades));
-        
-        assertNotEquals(null, listaEstados.size());
+        assertNotEquals(null, listaBairros.size());
     }
     
 }

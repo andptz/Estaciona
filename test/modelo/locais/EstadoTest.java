@@ -116,7 +116,7 @@ public class EstadoTest {
     }
     
     @Test
-    public void recuperarEstados() throws ClassNotFoundException, SQLException {
+    public void testRecuperarEstados() throws ClassNotFoundException, SQLException {
         PersistenciaEstado persistencia = new PersistenciaEstado();
         ArrayList<Estado> listaEstados;
                 
