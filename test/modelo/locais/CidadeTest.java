@@ -165,7 +165,7 @@ public class CidadeTest {
         Estado est = listaEstados.get(7);
         
         listaCidades = persistCidade.recuperarCidades(est);
-        //System.out.println(persistCidade.toString(listaCidades));
+        System.out.println(persistCidade.toString(listaCidades));
         
         assertNotEquals(null, listaEstados.size());
     }

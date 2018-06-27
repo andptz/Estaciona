@@ -121,7 +121,7 @@ public class EstadoTest {
         ArrayList<Estado> listaEstados;
                 
         listaEstados = persistencia.recuperarEstados();
-        //System.out.println(persistencia.toString(listaEstados));
+        System.out.println(persistencia.toString(listaEstados));
         
         //assertNotEquals(null, listaEstados);
         //assertEquals("", listaEstados.get(0).getNome());
