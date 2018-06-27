@@ -1,11 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package persistencia.componentes;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import persistencia.utilidade.ConexaoBD;
 import java.sql.SQLException;
@@ -17,20 +14,46 @@ import modelo.componentes.Veiculo;
 public class PersistenciaVeiculo {
     Connection conexao = null;
     
-    public void CriarVeiculo(Veiculo veiculo) throws SQLException{
+    public void CriarVeiculoMotorista(Veiculo veiculo,int id_moto) throws SQLException{
+        
+        
         String sql;
-         
         
+        //Estabelece a conexão;
         conexao = ConexaoBD.conectar();
-        Statement statement = conexao.createStatement();
+ 
+        //SQL Criar Veiculo;
+        PreparedStatement ps = conexao.prepareStatement("INSERT INTO veiculo(modelo,marca,placa,ano) values(?,?,?,?) returning id;");
         
-        sql = String.format("INSERT INTO veiculo (modelo,ano,placa,marca,id)"
-        + "VALUES (%s, %d, %s, %s)", veiculo.getModelo(),veiculo.getAno(),veiculo.getPlaca(),veiculo.getMarca());
-        statement.executeUpdate(sql);
-        System.out.println("Novo veículo cadastrado!");
+        ps.setString(1,veiculo.getModelo()); // Modelo
+        ps.setString(2,veiculo.getMarca()); // Marca
+        ps.setString(3,veiculo.getPlaca()); // Placa    
+        ps.setInt(4,veiculo.getAno()); // Ano
         
-        statement.close();
-        conexao.close();
+        //Executa SQL e guarda ID;
+        ResultSet rs = ps.executeQuery();
+      
+        //Se obtiver algum resultado da Execução;
+        if(rs.next()){
+            
+            //SQL Cria Veiculo Motorista;
+            ps = conexao.prepareStatement("INSERT INTO veiculo_motorista(fk_veiculo_id,fk_motorista_fk_pessoa_fisica_fk_pessoa_id) values(?,?) returning fk_motorista_fk_pessoa_fisica_fk_pessoa_id;");
+            ps.setInt(1,rs.getInt("id")); // ID Veiculo
+            ps.setInt(2,id_moto); // ID Motoritsta
+            
+            //Executa SQL e guarda ID;
+            rs = ps.executeQuery();
+            
+            //Verifica o ID retornado;
+            if(rs.next()){
+                
+                if (rs.getInt("fk_motorista_fk_pessoa_fisica_fk_pessoa_id") == id_moto){
+                    System.out.print("Sucesso - Motorista_Veiculo.");
+                }
+                
+            }
+            
+        }
          
     }
     

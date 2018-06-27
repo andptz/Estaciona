@@ -56,6 +56,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        campoEmail.setText("marcelogus@ambiente.sp.gov.br");
         campoEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoEmailActionPerformed(evt);
