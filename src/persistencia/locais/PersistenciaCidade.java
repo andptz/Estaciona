@@ -39,35 +39,6 @@ public class PersistenciaCidade {
     }
     
     //Método que retorna num Array, as cidades (recuperadas de um banco de dados) de um determinado estado.
-    /*
-    public ArrayList recuperarCidades(Estado estado) throws SQLException{
-        String sql;
-        ArrayList<Cidade> listaCidades = new ArrayList<>();
-        //Seleciona as cidades de um determinado estado.
-        sql = String.format("SELECT * FROM cidade WHERE cidade.FK_ESTADO_id = %d;", estado.getId());
-        
-        conexao = ConexaoBD.conectar();
-        Statement statement = conexao.createStatement();
-        
-        if (statement.executeQuery(sql).first()) {
-            //exeucta a query no banco de dados
-            ResultSet rs = statement.executeQuery(sql);
-            while(rs.next()){
-                Cidade cidade = new Cidade();
-                cidade.setId(rs.getInt("id"));
-                cidade.setNome(rs.getString("nome"));
-                cidade.setFK_ESTADO_id(estado.getId());
-                cidade.setEstado(estado);
-                listaCidades.add(cidade);
-            }
-        }
-        //fecha a conexao com o banco de dados
-        statement.close();
-        conexao.close();
-        return listaCidades;
-    }*/
-    
-    //Método que retorna num Array, as cidades (recuperadas de um banco de dados) de um determinado estado.
     public ArrayList recuperarCidades(Estado estado) throws SQLException{
         String sql;
         
@@ -89,6 +60,8 @@ public class PersistenciaCidade {
             cidade.setNome(rs.getString("nome"));
             cidade.setFK_ESTADO_id(estado.getId());
             cidade.setEstado(estado);
+            PersistenciaBairro bairro = new PersistenciaBairro();
+            cidade.setLista_bairros(bairro.recuperarBairros(cidade));
             listaCidades.add(cidade);
         }
         
