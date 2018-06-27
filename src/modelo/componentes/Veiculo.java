@@ -9,7 +9,7 @@ package modelo.componentes;
  *
  * @author Edmiltho
  */
-public class Veiculo {
+public final class Veiculo {
     private int id;
     private String placa;
     private int ano;
@@ -24,10 +24,13 @@ public class Veiculo {
         this.marca = marca;
     }
 
-    public Veiculo(int ano, String modelo, String marca) {
-        this.ano = ano;
-        this.modelo = modelo;
-        this.marca = marca;
+    public Veiculo(int ano, String modelo, String marca,String placa) {
+        setAno(ano);
+        setModelo(modelo);
+        setMarca(marca);
+        setPlaca(placa);
+        
+        
     }
     
     public Veiculo(){}
