@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package persistencia.componentes;
 
 import java.sql.Connection;
@@ -51,7 +47,7 @@ public class PersistenciaVeiculo {
             //Verifica o ID retornado;
             if(rs.next()){
                 
-                if (rs.getInt("id") == id_moto){
+                if (rs.getInt("fk_motorista_fk_pessoa_fisica_fk_pessoa_id") == id_moto){
                     System.out.print("Sucesso - Motorista_Veiculo.");
                 }
                 
