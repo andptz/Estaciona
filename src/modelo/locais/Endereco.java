@@ -4,7 +4,7 @@ package modelo.locais;
 public class Endereco {
     private int id;
     private String logradouro;
-    private String complemento;
+    private String complemento=null;
     private String cep;
     private Bairro bairro;
     private Cidade cidade;
@@ -19,12 +19,12 @@ public class Endereco {
     @Override
     public String toString(){
         String texto;
-        texto = "rua: " + this.logradouro;
+        texto = "logradouro: " + this.logradouro;
         texto += "\nComplemento: " + this.complemento;
         texto += "\nCEP: " + this.cep;
-        texto += "\nBairro: "  + this.bairro;
-        texto += "\nCidade: " + this.cidade;
-        texto += "\nbEstado: " + this.estado;
+        texto += "\nbEstado: " + this.estado.getNome();
+        texto += "\nCidade: " + this.cidade.getNome();
+        texto += "\nBairro: "  + this.bairro.getNome();
         return texto;
     }
 
@@ -61,15 +61,27 @@ public class Endereco {
     }
 
     public Estado getEstado() {
-        return bairro.getCidade().getEstado();
+        return this.estado;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
     }
 
     public Cidade getCidade() {
-        return bairro.getCidade();
+        return this.cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
     }
 
     public Bairro getBairro() {
-        return bairro;
+        return this.bairro;
+    }
+
+    public void setBairro(Bairro bairro) {
+        this.bairro = bairro;
     }
 
     public String getCep() {
@@ -77,13 +89,10 @@ public class Endereco {
     }
 
     public void setCep(String cep) {
-        if (cep.length() == TAM_CEP){
+        if (cep.length() == TAM_CEP)
             this.cep = cep;
-        
-        }else{
+        else
             throw new IllegalArgumentException("CEP inválido!");
-        }
-            
     }
 
     public String getComplemento() {
@@ -91,11 +100,10 @@ public class Endereco {
     }
 
     public void setComplemento(String complemento) {
-        if(complemento.length() <= TAM_COMPLEMENTO)
+        if(complemento == null || complemento.length() <= TAM_COMPLEMENTO)
             this.complemento = complemento;
         else
             throw new IllegalArgumentException("Complemento inválido!");
     }
-
 }
 
