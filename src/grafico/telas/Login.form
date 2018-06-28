@@ -110,7 +110,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="campoEmail">
       <Properties>
-        <Property name="text" type="java.lang.String" value="marcelogus@ambiente.sp.gov.br"/>
+        <Property name="text" type="java.lang.String" value="maiteheloiselopes@atiara.com.br"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoEmailActionPerformed"/>

@@ -190,7 +190,7 @@ public class EnderecoTest {
         
         ArrayList<Estado> listaEstados = persistEstado.recuperarEstados();
         ArrayList<Cidade> listaCidades = persistCidade.recuperarCidades(listaEstados.get(7));//7-ES
-        ArrayList<Bairro> listaBairros = persistBairro.recuperarBairros(listaCidades.get(0));//0-Vitória
+        //ArrayList<Bairro> listaBairros = persistBairro.recuperarBairros(listaCidades.get(0));//0-Vitória
         
         Endereco endereco = new Endereco();
         endereco.setLogradouro(logradouro);
@@ -198,7 +198,7 @@ public class EnderecoTest {
         endereco.setComplemento(complemento);
         endereco.setEstado(listaEstados.get(7));
         endereco.setCidade(listaCidades.get(0));
-        endereco.setBairro(listaBairros.get(3));//3-Centro
+        //endereco.setBairro(listaBairros.get(3));//3-Centro
         
         persistEndereco.insertEndereco(endereco);
         //System.out.println(endereco.toString());

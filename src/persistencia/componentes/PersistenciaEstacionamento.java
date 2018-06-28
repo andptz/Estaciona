@@ -18,11 +18,33 @@ import persistencia.utilidade.ConexaoBD;
  *
  * @author Manel
  */
+
+
+
 public class PersistenciaEstacionamento {
-    
-    
-    
+
     Connection conexao = null;
+    
+    
+    
+    public ArrayList<Estacionamento> selectFiltroEstado(String bairro ) throws SQLException{
+
+        ArrayList<Estacionamento> listEst = new ArrayList<>();
+        
+        conexao = ConexaoBD.conectar();
+        Statement statement = conexao.createStatement();
+        
+        String sql = String.format("SELECT id FROM bairro WHERE estado = '%s';",bairro);
+
+        
+
+        return listEst;
+    }
+
+
+    
+    
+    
    
     //Metodo que retorna um array com todas os estacionamento do banco de dados.
     public ArrayList recuperarEstacionamento() throws ClassNotFoundException, SQLException{

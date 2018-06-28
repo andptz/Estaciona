@@ -53,9 +53,55 @@ public class PersistenciaVeiculo {
                 }
                 
             }
-            
+            ps.close();
+            conexao.close();
         }
          
+    }
+    
+    public void updateCorVeiculo(String nomeVeiculo,String cor) throws SQLException{
+        
+        String sql;
+        
+        //Estabelece a conexão;
+        conexao = ConexaoBD.conectar();
+ 
+        //SQL UpdateVeiculo;
+        PreparedStatement ps = conexao.prepareStatement("UPDATE veiculo SET cor = ? where modelo = ? returning id;");
+        
+        ps.setString(1,cor); // Cor
+        ps.setString(2,nomeVeiculo);//Modelo
+        
+        //Executa SQL e guarda ID;
+        ResultSet rs = ps.executeQuery();
+        ps.close();
+        conexao.close();
+    
+    }
+    public void deletaVeiculo(String nomeVeiculo) throws SQLException{
+        
+        String sql;
+        conexao = ConexaoBD.conectar();
+        Statement statement = conexao.createStatement();
+        
+        sql = String.format("SELECT id FROM veiculo WHERE marca = '%s';",nomeVeiculo);
+       
+        //exeucta a query no meu banco de dados
+        ResultSet rs = statement.executeQuery(sql);
+        if(rs.next()){
+            int id_veiculo = rs.getInt("id");
+            sql = String.format("DELETE FROM veiculo_motorista WHERE fk_veiculo_id= '%s' returning fk_veiculo_id;",id_veiculo);
+            rs = statement.executeQuery(sql);
+            
+            if(rs.next()){
+                sql = String.format("DELETE FROM veiculo WHERE id= '%s' returning id;",id_veiculo);
+                rs = statement.executeQuery(sql);
+                
+            }
+        }
+        statement.close();
+        conexao.close();
+        
     }
     
     //Metodo que retorna um array com todos os veiculos do banco de dados.

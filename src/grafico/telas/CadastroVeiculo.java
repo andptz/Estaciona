@@ -44,7 +44,7 @@ public class CadastroVeiculo extends javax.swing.JFrame {
             
         }
         
-        System.out.print("OK");
+        
     }
 
     private CadastroVeiculo() {
@@ -77,6 +77,7 @@ public class CadastroVeiculo extends javax.swing.JFrame {
         campoCor1 = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         botaoConfirmaCadastro1 = new javax.swing.JButton();
+        botaoConfirmaCadastro2 = new javax.swing.JButton();
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -235,6 +236,14 @@ public class CadastroVeiculo extends javax.swing.JFrame {
             }
         });
 
+        botaoConfirmaCadastro2.setBackground(new java.awt.Color(255, 255, 255));
+        botaoConfirmaCadastro2.setText("Deleta Carro Selecionado");
+        botaoConfirmaCadastro2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoConfirmaCadastro2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -265,7 +274,8 @@ public class CadastroVeiculo extends javax.swing.JFrame {
                     .addComponent(campoAno)
                     .addComponent(boxAlterarCor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(campoCor1)
-                    .addComponent(botaoConfirmaCadastro1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(botaoConfirmaCadastro1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botaoConfirmaCadastro2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(17, 17, 17))
         );
         layout.setVerticalGroup(
@@ -300,15 +310,17 @@ public class CadastroVeiculo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(botaoConfirmaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(boxAlterarCor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(boxAlterarCor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(campoCor1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botaoConfirmaCadastro1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(botaoConfirmaCadastro2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -371,7 +383,7 @@ public class CadastroVeiculo extends javax.swing.JFrame {
     }//GEN-LAST:event_campoMarcaActionPerformed
 
     private void campoCorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCorActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_campoCorActionPerformed
 
     private void campoPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPlacaActionPerformed
@@ -383,8 +395,32 @@ public class CadastroVeiculo extends javax.swing.JFrame {
     }//GEN-LAST:event_campoCor1ActionPerformed
 
     private void botaoConfirmaCadastro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConfirmaCadastro1ActionPerformed
-        // TODO add your handling code here:
+        String newCor = campoCor1.getText();
+        String nome = (String) boxAlterarCor.getSelectedItem();
+        PersistenciaVeiculo pv = new PersistenciaVeiculo();
+        
+        try {
+            System.out.print(nome);
+            System.out.print(newCor);
+            pv.updateCorVeiculo(nome, newCor);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            Logger.getLogger(CadastroVeiculo.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_botaoConfirmaCadastro1ActionPerformed
+
+    private void botaoConfirmaCadastro2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConfirmaCadastro2ActionPerformed
+        String nome = (String) boxAlterarCor.getSelectedItem();
+        PersistenciaVeiculo pv = new PersistenciaVeiculo();
+        try {
+            pv.deletaVeiculo(nome);
+        } catch (SQLException ex) {
+            
+            ex.printStackTrace();
+            Logger.getLogger(CadastroVeiculo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_botaoConfirmaCadastro2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -425,6 +461,7 @@ public class CadastroVeiculo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoConfirmaCadastro;
     private javax.swing.JButton botaoConfirmaCadastro1;
+    private javax.swing.JButton botaoConfirmaCadastro2;
     private javax.swing.JButton botaoVoltarLogin;
     private javax.swing.JComboBox<String> boxAlterarCor;
     private javax.swing.JTextField campoAno;

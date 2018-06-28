@@ -57,8 +57,8 @@ public class PersistenciaCidade {
             cidade.setNome(rs.getString("nome"));
             cidade.setFK_ESTADO_id(estado.getId());
             cidade.setEstado(estado);
-            PersistenciaBairro bairro = new PersistenciaBairro();
-            cidade.setLista_bairros(bairro.recuperarBairros(cidade));
+           // PersistenciaBairro bairro = new PersistenciaBairro();
+           // cidade.setLista_bairros(bairro.recuperarBairros(cidade));
             listaCidades.add(cidade);
         }
         
@@ -67,6 +67,9 @@ public class PersistenciaCidade {
         conexao.close();
         return listaCidades;
     }
+    
+    
+    
     
     //Método que formata a saída em texto das cidades. (Método não utilizado)
     public String toString(ArrayList<Cidade> listaCidades){

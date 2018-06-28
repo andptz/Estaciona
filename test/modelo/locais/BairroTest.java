@@ -135,11 +135,11 @@ public class BairroTest {
         
         ArrayList<Estado> listaEstados = persistEstado.recuperarEstados();
         ArrayList<Cidade> listaCidades = persistCidade.recuperarCidades(listaEstados.get(7));
-        ArrayList<Bairro> listaBairros = persistBairro.recuperarBairros(listaCidades.get(0));
+        //ArrayList<Bairro> listaBairros = persistBairro.recuperarBairros(listaCidades.get(0));
         
-        System.out.println(persistBairro.toString(listaBairros));
+        //System.out.println(persistBairro.toString(listaBairros));
         
-        assertNotEquals(null, listaBairros.size());
+        //assertNotEquals(null, listaBairros.size());
     }
     
 }

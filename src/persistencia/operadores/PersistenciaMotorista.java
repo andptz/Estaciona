@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 
 import javax.swing.JOptionPane;
@@ -81,6 +82,21 @@ public class PersistenciaMotorista {
         
     }
  
+    public void desativaMotorista(int id) throws SQLException{
+           
+        conexao = ConexaoBD.conectar();
+        
+        String sql = String.format("UPDATE pessoa set situacao='desativado' where id = %d returning id",id);
+        Statement statement = conexao.createStatement();
+         
+        //exeucta a query no meu banco de dados
+        ResultSet rs = statement.executeQuery(sql);
+        statement.close();
+        conexao.close();
+    
+    }
+    
+    
     //Metodo id do Motorista;
     public int loginMotorista(String email,String senha) throws ClassNotFoundException, SQLException{
         
@@ -88,7 +104,7 @@ public class PersistenciaMotorista {
         conexao = ConexaoBD.conectar();
         //========================================         
         //Criar pessoa;
-        PreparedStatement ps = conexao.prepareStatement("SELECT * FROM pessoa WHERE  email = ? and senha = ?");
+        PreparedStatement ps = conexao.prepareStatement("SELECT * FROM pessoa WHERE  email = ? and senha = ? and situacao='ativado'");
         
         ps.setString(1,email); // Email
         ps.setString(2,senha); // Senha
@@ -97,11 +113,12 @@ public class PersistenciaMotorista {
         //Executa SQL e guarda ID;
         ResultSet rs = ps.executeQuery();
         
-        System.out.print("Ok");
+  
         
         if(rs.next()){
             
             return rs.getInt("id");
+            
             
         }else{
         
@@ -109,7 +126,8 @@ public class PersistenciaMotorista {
             
             return -1;
         }  
-           
+        
+      
     }
     
     public void alterarSenha (int id, String senha) throws SQLException{
@@ -122,6 +140,8 @@ public class PersistenciaMotorista {
         ps.setInt(2,id); // ID
         
         ResultSet rs = ps.executeQuery();
+        ps.close();
+        conexao.close();
         
     
     }

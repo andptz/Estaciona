@@ -14,11 +14,11 @@ import persistencia.utilidade.ConexaoBD;
 public class PersistenciaBairro {
     Connection conexao = null;
    
-    public ArrayList recuperarBairros(Cidade cidade) throws SQLException{
+    public ArrayList recuperarBairros(int id) throws SQLException{
         String sql;
         ArrayList<Bairro> listaBairros = new ArrayList<>();
         //Seleciona as cidades de um determinado estado.
-        sql = String.format("SELECT * FROM bairro B WHERE B.FK_CIDADE_id = %d;", cidade.getId());
+        sql = String.format("SELECT * FROM bairro B WHERE B.FK_CIDADE_id = %d;", id);
         
         conexao = ConexaoBD.conectar();
         Statement statement = conexao.createStatement();
@@ -29,8 +29,6 @@ public class PersistenciaBairro {
             Bairro bairro = new Bairro();
             bairro.setId(rs.getInt("id"));
             bairro.setNome(rs.getString("nome"));
-            bairro.setFK_CIDADE_id(cidade.getId());
-            bairro.setCidade(cidade);
             listaBairros.add(bairro);
         }
         //fecha a conexao com o banco de dados
