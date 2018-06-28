@@ -2,12 +2,14 @@
 package modelo.locais;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import persistencia.locais.PersistenciaBairro;
 import persistencia.locais.PersistenciaCidade;
 import persistencia.locais.PersistenciaEndereco;
 import persistencia.locais.PersistenciaEstado;
@@ -176,18 +178,32 @@ public class EnderecoTest {
     }
 
     @Test
-    public void insertEndereco(Endereco endereco) throws SQLException{
-        /*private int id;
-        private String logradouro;
-        private String complemento;
-        private String cep;
-        private Bairro bairro;
-        private Cidade cidade;
-        private Estado estado;*/
+    public void testInsertEndereco() throws SQLException, ClassNotFoundException{
+        String logradouro = "Rua Sete de Setembro, 362";
+        String complemento = new String();
+        String cep = "29015-905";
+        
         PersistenciaEndereco persistEndereco = new PersistenciaEndereco();
         PersistenciaEstado persistEstado = new PersistenciaEstado();
-        PersistenciaCidade persistCidade = new ;
+        PersistenciaCidade persistCidade = new PersistenciaCidade();
+        PersistenciaBairro persistBairro = new PersistenciaBairro();
         
+        ArrayList<Estado> listaEstados = persistEstado.recuperarEstados();
+        ArrayList<Cidade> listaCidades = persistCidade.recuperarCidades(listaEstados.get(7));//7-ES
+        ArrayList<Bairro> listaBairros = persistBairro.recuperarBairros(listaCidades.get(0));//0-Vitória
+        
+        Endereco endereco = new Endereco();
+        endereco.setLogradouro(logradouro);
+        endereco.setCep(cep);
+        endereco.setComplemento(complemento);
+        endereco.setEstado(listaEstados.get(7));
+        endereco.setCidade(listaCidades.get(0));
+        endereco.setBairro(listaBairros.get(3));//3-Centro
+        
+        persistEndereco.insertEndereco(endereco);
+        //System.out.println(endereco.toString());
+        
+        assertNotEquals(null, endereco);
     }
     
 }
