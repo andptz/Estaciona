@@ -39,12 +39,60 @@ public class PersistenciaReserva {
          
     }
     
+     public ArrayList<Reserva> selectFiltroBairro2(String bairro) throws SQLException{
+
+        ArrayList<Reserva> listRes = new ArrayList<>();
+        
+        conexao = ConexaoBD.conectar();
+        Statement statement = conexao.createStatement();
+        
+        String sql = String.format("SELECT id FROM bairro WHERE nome = '%s';",bairro);
+          
+        //exeucta a query no meu banco de dados
+        ResultSet rs = statement.executeQuery(sql);
+        
+        if(rs.next()){
+            int id_bairro = rs.getInt("id");
+            sql = String.format("SELECT id FROM endereco WHERE fk_bairro_id = '%d';",id_bairro);
+            rs = statement.executeQuery(sql);
+            
+            if(rs.next()){
+                
+                int id_endereco = rs.getInt("id");
+                sql = String.format("SELECT id FROM estacionamento WHERE fk_endereco_id = '%d';",id_endereco);
+                rs = statement.executeQuery(sql);
+                
+                if(rs.next()){
+                    
+                    int id_estacionamento = rs.getInt("id");
+                    sql = String.format("SELECT datareserva,horareserva,horasaida FROM reserva WHERE fk_estacionamento_id = '%d';",id_estacionamento);
+                    rs = statement.executeQuery(sql);
+                    
+                    while(rs.next()){
+                        Reserva res = new Reserva();
+                        res.setDataReserva(rs.getString("datareserva"));
+                        res.setHoraReserva(rs.getString("horareserva"));
+                        res.setHoraSaida(rs.getString("horasaida"));
+                        listRes.add(res);
+                    }
+
+                    
+                
+                }
+
+            }
+            
+        }
+
+        return listRes;
+    }
+    
     //Recebe o motorista e recupera a reserva
-    public ArrayList recuperarReserva(Motorista motorista) throws ClassNotFoundException, SQLException{
+    public ArrayList recuperarReserva(int id) throws ClassNotFoundException, SQLException{
         ArrayList<Reserva> listaReservas = new ArrayList<>();
         String sql;
         
-        sql = String.format("SELECT * FROM reserva R WHERE R.fk_motorista_fk_pessoa_fisica_fk_pessoa_id = %d;", motorista.getId_pessoa());
+        sql = String.format("SELECT * FROM reserva R WHERE R.fk_motorista_fk_pessoa_fisica_fk_pessoa_id = %d;",id);
         
         conexao = ConexaoBD.conectar();
         Statement statement = conexao.createStatement();

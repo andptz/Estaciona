@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import modelo.componentes.Estacionamento;
+import modelo.operacoes.Reserva;
 
 import persistencia.utilidade.ConexaoBD;
 
@@ -24,10 +25,8 @@ import persistencia.utilidade.ConexaoBD;
 public class PersistenciaEstacionamento {
 
     Connection conexao = null;
-    
-    
-    
-    public ArrayList<Estacionamento> selectFiltroEstado(String bairro ) throws SQLException{
+     
+    public ArrayList<Estacionamento> selectFiltroBairro(String bairro) throws SQLException{
 
         ArrayList<Estacionamento> listEst = new ArrayList<>();
         
