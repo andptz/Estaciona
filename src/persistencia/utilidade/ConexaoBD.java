@@ -24,6 +24,7 @@ public class ConexaoBD {
             connection = (Connection) DriverManager.getConnection(url, usuario, senha);
             System.out.println("Banco de dados aberto");
         } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
             Logger.getLogger(ConexaoBD.class.getName()).log(Level.SEVERE, null, ex);
         }
         return connection;

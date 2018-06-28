@@ -15,20 +15,23 @@ public final class Veiculo {
     private int ano;
     private String modelo;
     private String marca;
+    private String cor;
     public final int PLACA = 7;
 
-    public Veiculo(int id, String placa, int ano, String modelo, String marca) {
+    public Veiculo(int id, String placa, int ano, String modelo, String marca,String cor) {
         this.placa = placa;
         this.ano = ano;
         this.modelo = modelo;
         this.marca = marca;
+        this.cor = cor;
     }
 
-    public Veiculo(int ano, String modelo, String marca,String placa) {
+    public Veiculo(int ano, String modelo, String marca,String placa,String cor) {
         setAno(ano);
         setModelo(modelo);
         setMarca(marca);
         setPlaca(placa);
+        setCor(cor);
         
         
     }
@@ -39,7 +42,16 @@ public final class Veiculo {
     public String toString() {
         return "Veiculo{" + "id=" + id + ", placa=" + placa + ", ano=" + ano + ", modelo=" + modelo + ", marca=" + marca + ", PLACA=" + PLACA + '}';
     }
+    
+    public String getCor() {
+        return cor;
+    }
 
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+    
+    
     public int getId() {
         return id;
     }

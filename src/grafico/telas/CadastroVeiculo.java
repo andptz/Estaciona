@@ -8,6 +8,7 @@ package grafico.telas;
 import grafico.utilidade.Grafico;
 import java.awt.Color;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -21,13 +22,29 @@ public class CadastroVeiculo extends javax.swing.JFrame {
     private final Color minhaColor = new Color(96,102,96);
     private int id;
     
-    public CadastroVeiculo(int id) {
+    public CadastroVeiculo(int id) throws ClassNotFoundException, SQLException {
         setDefaultLookAndFeelDecorated(true); 
         Grafico.lookAndFeel();
         this.getContentPane().setBackground(minhaColor);
         initComponents();
         this.id = id;
         
+        ArrayList<Veiculo> v = new ArrayList<>();
+        PersistenciaVeiculo pv = new PersistenciaVeiculo();
+        
+        v = pv.recuperarVeiculosMotorista(id);
+        
+        for(int i = 0; i < v.size();i++){
+            
+            tableVeiculo.setValueAt(v.get(i).getModelo(),i,0);
+            tableVeiculo.setValueAt(v.get(i).getMarca(),i,1);
+            tableVeiculo.setValueAt(v.get(i).getCor(),i,2);
+            
+            boxAlterarCor.addItem(v.get(i).getModelo());
+            
+        }
+        
+        System.out.print("OK");
     }
 
     private CadastroVeiculo() {
@@ -41,7 +58,6 @@ public class CadastroVeiculo extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         campoCPF1 = new javax.swing.JTextField();
         botaoConfirmaCadastro = new javax.swing.JButton();
-        campoPlaca = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -52,6 +68,15 @@ public class CadastroVeiculo extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         campoMarca = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
+        campoCor = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableVeiculo = new javax.swing.JTable();
+        campoPlaca = new javax.swing.JTextField();
+        boxAlterarCor = new javax.swing.JComboBox<>();
+        campoCor1 = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        botaoConfirmaCadastro1 = new javax.swing.JButton();
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -71,16 +96,10 @@ public class CadastroVeiculo extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(300, 500));
 
         botaoConfirmaCadastro.setBackground(new java.awt.Color(255, 255, 255));
-        botaoConfirmaCadastro.setText("Confirmar");
+        botaoConfirmaCadastro.setText("Cadastrar Veiculo");
         botaoConfirmaCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoConfirmaCadastroActionPerformed(evt);
-            }
-        });
-
-        campoPlaca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoPlacaActionPerformed(evt);
             }
         });
 
@@ -131,6 +150,91 @@ public class CadastroVeiculo extends javax.swing.JFrame {
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Marca");
 
+        campoCor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoCorActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("Cor");
+
+        tableVeiculo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Modelo", "Marca", "Cor"
+            }
+        ));
+        jScrollPane1.setViewportView(tableVeiculo);
+
+        campoPlaca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoPlacaActionPerformed(evt);
+            }
+        });
+
+        boxAlterarCor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Selecione o Veiculo>" }));
+
+        campoCor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoCor1ActionPerformed(evt);
+            }
+        });
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("Cor");
+
+        botaoConfirmaCadastro1.setBackground(new java.awt.Color(255, 255, 255));
+        botaoConfirmaCadastro1.setText("Alterar Cor");
+        botaoConfirmaCadastro1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoConfirmaCadastro1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -142,20 +246,27 @@ public class CadastroVeiculo extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel16)
-                    .addComponent(botaoConfirmaCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
+                    .addComponent(jLabel18)
                     .addComponent(jLabel1)
-                    .addComponent(campoPlaca)
                     .addComponent(jLabel7)
-                    .addComponent(jLabel8)
                     .addComponent(campoModelo)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel17)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
+                    .addComponent(botaoConfirmaCadastro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(campoCor)
+                    .addComponent(campoMarca)
+                    .addComponent(campoPlaca, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel8)
                     .addComponent(campoAno)
-                    .addComponent(campoMarca))
-                .addGap(72, 72, 72))
+                    .addComponent(boxAlterarCor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(campoCor1)
+                    .addComponent(botaoConfirmaCadastro1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(17, 17, 17))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,11 +277,11 @@ public class CadastroVeiculo extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel3)
                         .addComponent(botaoVoltarLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(86, 86, 86)
+                .addGap(21, 21, 21)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(campoPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(1, 1, 1)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(campoModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -182,25 +293,38 @@ public class CadastroVeiculo extends javax.swing.JFrame {
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(campoMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(campoCor, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(botaoConfirmaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(86, 86, 86))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(boxAlterarCor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(campoCor1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(botaoConfirmaCadastro1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoConfirmaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConfirmaCadastroActionPerformed
-        
-        
-        
+
         try{
             String modelo = campoModelo.getText();
             String marca = campoMarca.getText();
             String placa = campoPlaca.getText();
             int ano =Integer.parseInt(campoAno.getText());
+            String cor = campoCor.getText();
             
-            Veiculo veiculo = new Veiculo(ano,modelo,marca,placa);
+            Veiculo veiculo = new Veiculo(ano,modelo,marca,placa,cor);
             PersistenciaVeiculo pveiculo = new PersistenciaVeiculo();
             pveiculo.CriarVeiculoMotorista(veiculo,this.id);
             
@@ -217,10 +341,6 @@ public class CadastroVeiculo extends javax.swing.JFrame {
 
         
     }//GEN-LAST:event_botaoConfirmaCadastroActionPerformed
-
-    private void campoPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPlacaActionPerformed
-        
-    }//GEN-LAST:event_campoPlacaActionPerformed
 
     private void botaoVoltarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarLoginActionPerformed
         setVisible(false);
@@ -249,6 +369,22 @@ public class CadastroVeiculo extends javax.swing.JFrame {
     private void campoMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoMarcaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoMarcaActionPerformed
+
+    private void campoCorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoCorActionPerformed
+
+    private void campoPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPlacaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoPlacaActionPerformed
+
+    private void campoCor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCor1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoCor1ActionPerformed
+
+    private void botaoConfirmaCadastro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConfirmaCadastro1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoConfirmaCadastro1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,18 +424,26 @@ public class CadastroVeiculo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoConfirmaCadastro;
+    private javax.swing.JButton botaoConfirmaCadastro1;
     private javax.swing.JButton botaoVoltarLogin;
+    private javax.swing.JComboBox<String> boxAlterarCor;
     private javax.swing.JTextField campoAno;
     private javax.swing.JTextField campoCPF1;
+    private javax.swing.JTextField campoCor;
+    private javax.swing.JTextField campoCor1;
     private javax.swing.JTextField campoMarca;
     private javax.swing.JTextField campoModelo;
     private javax.swing.JTextField campoPlaca;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tableVeiculo;
     // End of variables declaration//GEN-END:variables
 }
