@@ -45,6 +45,20 @@ public class Reserva {
 
     public Reserva(){}
 
+    public int getId() {
+        return id;
+    }
+
+    public String getHoraReserva() {
+        return horaReserva;
+    }
+
+    public String getDataReserva() {
+        return dataReserva;
+    }
+    
+    
+
     public Motorista getMotorista() {
         return motorista;
     }
