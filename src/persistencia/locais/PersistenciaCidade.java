@@ -40,12 +40,10 @@ public class PersistenciaCidade {
     
     //Método que retorna num Array, as cidades (recuperadas de um banco de dados) de um determinado estado.
     public ArrayList recuperarCidades(Estado estado) throws SQLException{
-        String sql;
-        
         ArrayList<Cidade> listaCidades = new ArrayList<>();
         
         //Seleciona as cidades de um determinado estado.
-        sql = String.format("SELECT * FROM cidade WHERE cidade.FK_ESTADO_id = %d;", estado.getId());
+        String sql = String.format("SELECT * FROM cidade WHERE cidade.FK_ESTADO_id = %d;", estado.getId());
         
         conexao = ConexaoBD.conectar();
         Statement statement = conexao.createStatement();
@@ -54,7 +52,6 @@ public class PersistenciaCidade {
         ResultSet rs = statement.executeQuery(sql);
         
         while(rs.next()){
-            
             Cidade cidade = new Cidade();
             cidade.setId(rs.getInt("id"));
             cidade.setNome(rs.getString("nome"));
