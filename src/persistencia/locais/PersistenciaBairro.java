@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import modelo.locais.Bairro;
-import modelo.locais.Cidade;
 import persistencia.utilidade.ConexaoBD;
 
 

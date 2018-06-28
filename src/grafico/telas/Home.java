@@ -24,6 +24,7 @@ public class Home extends javax.swing.JFrame {
     
     private final Color minhaColor = new Color(96,102,96);
     private int id;
+    private int cont_itens;
     
     public Home(int id) throws SQLException, ClassNotFoundException {
         
@@ -42,7 +43,7 @@ public class Home extends javax.swing.JFrame {
         nomeMotorista.setText("Olá, " + moto.getNomeCompleto());
         moneyMotorista.setText("R$ "+moto.getCreditos());
         
-        //Carrega Estados;
+        //Carrega Bairros;
         ArrayList <Bairro> instance = new ArrayList<>();
         PersistenciaBairro pInstance = new PersistenciaBairro();
         instance = pInstance.recuperarBairros(1);
@@ -75,7 +76,7 @@ public class Home extends javax.swing.JFrame {
             tableEst.setValueAt(id_estacionamento,i,0);
             tableEst.setValueAt(nome,i,1);
             tableEst.setValueAt("R$ "+valorHora,i,2);
-            
+            cont_itens++;
             boxCodEstc.addItem(""+id_estacionamento);
             
           
@@ -1354,7 +1355,38 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonDesativaContaActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        ArrayList<Estacionamento> listEst = new ArrayList<>();
         String bairro = (String) bairroBox.getSelectedItem();
+        PersistenciaEstacionamento pest = new PersistenciaEstacionamento();
+        
+        try {
+            listEst = pest.selectFiltroEstado(bairro);
+            
+            for(int i = 0 ; i < cont_itens;i++){
+                tableEst.setValueAt("",i,0);
+                tableEst.setValueAt("",i,1);
+                tableEst.setValueAt("",i,2);
+            }
+            
+            cont_itens = 0;
+            
+            for(int i = 0; i < listEst.size();i++){
+            
+                int id_estacionamento = listEst.get(i).getId();
+                String nome = listEst.get(i).getNome();
+                double valorHora = listEst.get(i).getValorHora();
+
+                tableEst.setValueAt(id_estacionamento,i,0);
+                tableEst.setValueAt(nome,i,1);
+                tableEst.setValueAt("R$ "+valorHora,i,2);
+                cont_itens++;
+                boxCodEstc.addItem(""+id_estacionamento);
+            
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_jButton4ActionPerformed
 
