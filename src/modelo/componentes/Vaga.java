@@ -4,22 +4,16 @@ package modelo.componentes;
 
 public class Vaga {
     private int id;
-    private String status;
-    private int andar;
     private int numero;
-    private String latitude;
-    private String longitude;
     
     public final int TAM_LATI_LONGI = 15;
+    
+    
 
 
-    public Vaga(int id, String status, int andar, int numero, String latitude, String longitude) {
+    public Vaga(int id, String status, int andar, int numero) {
         this.id = id;
-        this.status = status;
-        this.andar = andar;
         this.numero = numero;
-        this.latitude = latitude;
-        this.longitude = longitude;
     }
 
     public Vaga() {
@@ -33,7 +27,7 @@ public class Vaga {
     public void setId(int id) {
         this.id = id;
     }
-
+/*
     public String getStatus() {
         return status;
     }
@@ -52,7 +46,7 @@ public class Vaga {
         else
             throw new IllegalArgumentException("Andar inválido!");
     }
-
+*/
     public int getNumero() {
         return numero;
     }
@@ -60,7 +54,7 @@ public class Vaga {
     public void setNumero(int numero) {
         this.numero = numero;
     }
-
+/*
     public String getLatitude() {
         return latitude;
     }
@@ -82,6 +76,6 @@ public class Vaga {
         else
             throw new IllegalArgumentException("Longitude inválida!");
     }
-    
+    */
 
 }

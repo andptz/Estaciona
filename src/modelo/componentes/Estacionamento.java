@@ -6,36 +6,48 @@ import modelo.operadores.Guarda;
 import modelo.operadores.PessoaJuridica;
 import java.util.ArrayList;
 import modelo.locais.Endereco;
+import modelo.operadores.Funcionario;
 
 
 public class Estacionamento {
     private int id;
     private String nome;
-    private int qtdVagas;
     private Endereco endereco;
     private double valorHora;
     private ArrayList<Vaga> listaVagas;
-    private Guarda guarda;
+    private Funcionario funcionario;
     private ArrayList<Administrador> listaAdministradores;
+    private LocalizacaoGPS gps;
     private PessoaJuridica pessoaJuridica;
-    private String latitude;
-    private String longitude;
 
     public Estacionamento() {
     }
-    
-    public Estacionamento(int id, String nome, int qtdVagas, Endereco endereco, double valorHora, Guarda guarda, ArrayList<Administrador> listaAdministradores, ArrayList<Vaga> listaVagas, PessoaJuridica pessoaJuridica, String latitude, String longitude) {
+
+    public Estacionamento(String nome, double valorHora) {
+        this.nome = nome;
+        this.valorHora = valorHora;
+    }
+
+    public Estacionamento(int id, String nome, Endereco endereco, double valorHora, ArrayList<Vaga> listaVagas, Guarda guarda, LocalizacaoGPS gps) {
         this.id = id;
         this.nome = nome;
-        this.qtdVagas = qtdVagas;
         this.endereco = endereco;
         this.valorHora = valorHora;
-        this.guarda = guarda;
+        this.listaVagas = listaVagas;
+        this.funcionario = funcionario;
+        this.gps = gps;
+    }
+    
+    public Estacionamento(int id, String nome, Endereco endereco, double valorHora, Guarda guarda, ArrayList<Administrador> listaAdministradores, ArrayList<Vaga> listaVagas, PessoaJuridica pessoaJuridica) {
+        this.id = id;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.valorHora = valorHora;
+        this.funcionario = funcionario;
         this.listaAdministradores = listaAdministradores;
         this.listaVagas = listaVagas;
         this.pessoaJuridica = pessoaJuridica;
-        this.latitude = latitude;
-        this.longitude = longitude;
+        
     }
 
     public int getId() {
@@ -54,14 +66,6 @@ public class Estacionamento {
         this.nome = nome;
     }
 
-    public int getQtdVagas() {
-        return qtdVagas;
-    }
-
-    public void setQtdVagas(int qtdVagas) {
-        this.qtdVagas = qtdVagas;
-    }
-
     public Endereco getEndereco() {
         return endereco;
     }
@@ -78,12 +82,12 @@ public class Estacionamento {
         this.valorHora = valorHora;
     }
 
-    public Guarda getGuarda() {
-        return guarda;
+    public Funcionario getFuncionario() {
+        return funcionario;
     }
 
-    public void setGuarda(Guarda guarda) {
-        this.guarda = guarda;
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
     }
 
     public ArrayList<Administrador> getListaAdministradores() {
@@ -110,21 +114,13 @@ public class Estacionamento {
         this.pessoaJuridica = pessoaJuridica;
     }
 
-    public String getLatitude() {
-        return latitude;
+    public LocalizacaoGPS getGps() {
+        return gps;
     }
 
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
-
-    public String getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
+    public void setGps(LocalizacaoGPS gps) {
+        this.gps = gps;
     }
     
- 
+    
 }
