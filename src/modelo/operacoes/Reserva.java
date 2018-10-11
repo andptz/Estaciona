@@ -5,43 +5,31 @@
  */
 package modelo.operacoes;
 
-import modelo.operadores.Motorista;
+
 import modelo.componentes.Veiculo;
 import modelo.componentes.Vaga;
+import modelo.operacoes.Pagamento;
 
 public class Reserva {
     private int id;
     private String horaReserva;
     private String dataReserva;
     private String horaSaida;
-    private Motorista motorista;
+    private Pagamento pagamento;
     private Veiculo veiculo;
     private Vaga vaga;
 
-    public Reserva(int id, String horaReserva, String dataReserva, String horaSaida, Motorista motorista, Veiculo veiculo, Vaga vaga) {
+    public Reserva(int id, String horaReserva, String dataReserva, String horaSaida, Pagamento pagamento, Veiculo veiculo, Vaga vaga) {
         this.id = id;
         this.horaReserva = horaReserva;
         this.dataReserva = dataReserva;
         this.horaSaida = horaSaida;
-        this.motorista = motorista;
+        this.pagamento = pagamento;
         this.veiculo = veiculo;
         this.vaga = vaga;
     }
 
-    public Reserva(String horaReserva, String dataReserva, String horaSaida, Motorista motorista, Veiculo veiculo, Vaga vaga) {
-        this.horaReserva = horaReserva;
-        this.dataReserva = dataReserva;
-        this.horaSaida = horaSaida;
-        this.motorista = motorista;
-        this.veiculo = veiculo;
-        this.vaga = vaga;
-    }
-
-    public Reserva(String horaReserva, String dataReserva, String horaSaida) {
-        this.horaReserva = horaReserva;
-        this.dataReserva = dataReserva;
-        this.horaSaida = horaSaida;
-    }
+    
 
     public Reserva(){}
 
@@ -56,16 +44,15 @@ public class Reserva {
     public String getDataReserva() {
         return dataReserva;
     }
-    
-    
 
-    public Motorista getMotorista() {
-        return motorista;
+    public Pagamento getPagamento() {
+        return pagamento;
     }
 
-    public void setMotorista(Motorista motorista) {
-        this.motorista = motorista;
+    public void setPagamento(Pagamento pagamento) {
+        this.pagamento = pagamento;
     }
+    
 
     public Veiculo getVeiculo() {
         return veiculo;
